@@ -1,0 +1,3 @@
+[submodule "RxAlamofire"]
+	path = RxAlamofire
+	url = https://github.com/RxSwiftCommunity/RxAlamofire.git
