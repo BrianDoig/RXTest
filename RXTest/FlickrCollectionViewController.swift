@@ -30,34 +30,56 @@ class FlickrCollectionViewController: UICollectionViewController {
         // Register cell classes
 //        self.collectionView!.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
+		// Create the callback that generates collection view cells
 		cvDataSource.configureCell = { [weak self] (ds, cv, ip, item) in
+			// Dequeue the cell and force cast it.  Not super safe but it 
+			// should not change and if it does, it will break immidiatly.
 			let cell = cv.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: ip) as! ImageCollectionViewCell
 			
+			// As long as self still exists, and we have an imageView that is not nil
 			if let imageView = cell.imageView,
 				let strongSelf = self  {
+				// Bind the image stream to the image view
 				item.image.bind(to: imageView.rx.image)
 					.disposed(by: strongSelf.disposeBag)
 			}
 			
+			// Return the generated table view cell.
+			print(cell)
 			return cell
 		}
 		
+		// Need to set this to nil to override the existing one set in the storyboard.
+		// Otherwise the library will throw an assert.
 		self.collectionView?.dataSource = nil
 		
+		// Create the image datasource
+		self.generateNewImageDatasource()
+    }
+	
+	private func generateNewImageDatasource() {
+		// Presuming the collection view still exists (it's weak to avoid memory leak)
 		if let cv = self.collectionView {
+			// Generate the data stream, transform it into table view sections,
+			// observe it on the main queue, and then bind the datasource
+			// to the collection view.
 			flickrInterestingGetImages()
 				.map({ (images) -> [SectionOfFlickrCellData] in
 					return [
 						SectionOfFlickrCellData(header: "", items: images.map(FlickrCellData.init))
 					]
 				})
+				.observeOn(MainScheduler.instance)
 				.bind(to: cv.rx.items(dataSource: cvDataSource))
 				.disposed(by: disposeBag)
-		
+			
+			
+			
+			
 		}
 		
-        // Do any additional setup after loading the view.
-    }
+
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

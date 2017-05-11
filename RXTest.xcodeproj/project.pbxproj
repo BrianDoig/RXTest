@@ -7,22 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1016BA5A1EC5066A00FCA0CC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; };
+		1016BA5B1EC5066A00FCA0CC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1016BA601EC5066A00FCA0CC /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA5F1EC5066A00FCA0CC /* RxCocoa.framework */; };
+		1016BA611EC5066A00FCA0CC /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA5F1EC5066A00FCA0CC /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1016BA661EC5066A00FCA0CC /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA651EC5066A00FCA0CC /* Swiftz.framework */; };
+		1016BA671EC5066A00FCA0CC /* Swiftz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA651EC5066A00FCA0CC /* Swiftz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1016BA691EC5066A00FCA0CC /* FlickrKitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA681EC5066A00FCA0CC /* FlickrKitFramework.framework */; };
+		1016BA6A1EC5066A00FCA0CC /* FlickrKitFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA681EC5066A00FCA0CC /* FlickrKitFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1016BA6B1EC5068300FCA0CC /* FlickrKitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA681EC5066A00FCA0CC /* FlickrKitFramework.framework */; };
+		1016BA6C1EC5068600FCA0CC /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA651EC5066A00FCA0CC /* Swiftz.framework */; };
+		1016BA6D1EC5068C00FCA0CC /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA5C1EC5066A00FCA0CC /* RxSwift.framework */; };
+		104392C31EC506DC0050D633 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA5C1EC5066A00FCA0CC /* RxSwift.framework */; };
+		104392C41EC506DE0050D633 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; };
+		104392C61EC507080050D633 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104392C51EC507080050D633 /* RxCocoa.framework */; };
+		104392C71EC508F80050D633 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104392C51EC507080050D633 /* RxCocoa.framework */; };
+		10B0F3CB1EC51B3F0032779D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */; };
+		10B0F3CC1EC51B3F0032779D /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10B0F3CD1EC51B580032779D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */; };
 		10B6BDAA1EC4103000B2233B /* FlickrDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6BDA91EC4103000B2233B /* FlickrDatasource.swift */; };
 		10B6BDAC1EC4130B00B2233B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6BDAB1EC4130B00B2233B /* ImageCollectionViewCell.swift */; };
-		10B6BDAE1EC41C0800B2233B /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B6BDAD1EC41C0800B2233B /* RxDataSources.framework */; };
-		10B6BDAF1EC41C0800B2233B /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B6BDAD1EC41C0800B2233B /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		10B7E0531EBF937E009314ED /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0521EBF937E009314ED /* Swiftz.framework */; };
-		10B7E0541EBF937E009314ED /* Swiftz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0521EBF937E009314ED /* Swiftz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10B7E0B81EBF9C5F009314ED /* RxAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B7E0A81EBF9C5F009314ED /* RxAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10B7E0BB1EBF9C5F009314ED /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0A61EBF9C5F009314ED /* RxAlamofire.framework */; };
 		10B7E0BC1EBF9C5F009314ED /* RxAlamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0A61EBF9C5F009314ED /* RxAlamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10B7E0C41EBF9C81009314ED /* URLSession+RxAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B7E0C31EBF9C81009314ED /* URLSession+RxAlamofire.swift */; };
 		10B7E0C61EBF9C86009314ED /* RxAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B7E0C51EBF9C86009314ED /* RxAlamofire.swift */; };
-		10B7E0C81EBF9CEC009314ED /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0311EBF904C009314ED /* Alamofire.framework */; };
-		10B7E0C91EBF9CF6009314ED /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0331EBF904C009314ED /* RxSwift.framework */; };
-		10B7E0CA1EBF9D08009314ED /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0321EBF904C009314ED /* RxCocoa.framework */; };
-		10E594221EC3E4E90058C7D3 /* FlickrKitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E594211EC3E4E90058C7D3 /* FlickrKitFramework.framework */; };
-		10E594231EC3E4E90058C7D3 /* FlickrKitFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E594211EC3E4E90058C7D3 /* FlickrKitFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10E594251EC3EDB20058C7D3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E594241EC3EDB20058C7D3 /* MainTabBarViewController.swift */; };
 		10E594271EC3EE1A0058C7D3 /* FlickrCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E594261EC3EE1A0058C7D3 /* FlickrCollectionViewController.swift */; };
 		10E594291EC3EE430058C7D3 /* PixabayCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E594281EC3EE430058C7D3 /* PixabayCollectionViewController.swift */; };
@@ -39,14 +48,6 @@
 		10FAD51A1EBCCB9D0058C602 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FAD5181EBCCB9D0058C602 /* LaunchScreen.storyboard */; };
 		10FAD5251EBCCB9D0058C602 /* RXTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FAD5241EBCCB9D0058C602 /* RXTestTests.swift */; };
 		10FAD5301EBCCB9D0058C602 /* RXTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FAD52F1EBCCB9D0058C602 /* RXTestUITests.swift */; };
-		10FAD55E1EBF87930058C602 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FAD55D1EBF87930058C602 /* RxSwift.framework */; };
-		10FAD55F1EBF87930058C602 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10FAD55D1EBF87930058C602 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		10FAD5611EBF87930058C602 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FAD5601EBF87930058C602 /* RxCocoa.framework */; };
-		10FAD5621EBF87930058C602 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10FAD5601EBF87930058C602 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		10FAD5641EBF87930058C602 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FAD5631EBF87930058C602 /* RxBlocking.framework */; };
-		10FAD5651EBF87930058C602 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10FAD5631EBF87930058C602 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		10FAD5861EBF8BF00058C602 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FAD5851EBF8BF00058C602 /* Alamofire.framework */; };
-		10FAD5871EBF8BF00058C602 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10FAD5851EBF8BF00058C602 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,14 +102,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				10B6BDAF1EC41C0800B2233B /* RxDataSources.framework in Embed Frameworks */,
-				10FAD5621EBF87930058C602 /* RxCocoa.framework in Embed Frameworks */,
-				10FAD5651EBF87930058C602 /* RxBlocking.framework in Embed Frameworks */,
+				1016BA6A1EC5066A00FCA0CC /* FlickrKitFramework.framework in Embed Frameworks */,
 				10E594451EC3EED10058C7D3 /* DataModel.framework in Embed Frameworks */,
-				10FAD5871EBF8BF00058C602 /* Alamofire.framework in Embed Frameworks */,
-				10FAD55F1EBF87930058C602 /* RxSwift.framework in Embed Frameworks */,
-				10E594231EC3E4E90058C7D3 /* FlickrKitFramework.framework in Embed Frameworks */,
-				10B7E0541EBF937E009314ED /* Swiftz.framework in Embed Frameworks */,
+				1016BA5B1EC5066A00FCA0CC /* Alamofire.framework in Embed Frameworks */,
+				10B0F3CC1EC51B3F0032779D /* RxDataSources.framework in Embed Frameworks */,
+				1016BA611EC5066A00FCA0CC /* RxCocoa.framework in Embed Frameworks */,
+				1016BA671EC5066A00FCA0CC /* Swiftz.framework in Embed Frameworks */,
 				10B7E0BC1EBF9C5F009314ED /* RxAlamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -117,19 +116,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1016BA591EC5066A00FCA0CC /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1016BA5C1EC5066A00FCA0CC /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1016BA5F1EC5066A00FCA0CC /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1016BA651EC5066A00FCA0CC /* Swiftz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swiftz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1016BA681EC5066A00FCA0CC /* FlickrKitFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKitFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		104392C51EC507080050D633 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxDataSources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B6BDA91EC4103000B2233B /* FlickrDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrDatasource.swift; sourceTree = "<group>"; };
 		10B6BDAB1EC4130B00B2233B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		10B6BDAD1EC41C0800B2233B /* RxDataSources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxDataSources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		10B7E0311EBF904C009314ED /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/RXTest-grwnfeilethurcaspznnozflfecz/Build/Products/Debug-iphonesimulator/Alamofire.framework"; sourceTree = "<group>"; };
-		10B7E0321EBF904C009314ED /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = "../../../Library/Developer/Xcode/DerivedData/RXTest-grwnfeilethurcaspznnozflfecz/Build/Products/Debug-iphonesimulator/RxCocoa.framework"; sourceTree = "<group>"; };
-		10B7E0331EBF904C009314ED /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "../../../Library/Developer/Xcode/DerivedData/RXTest-grwnfeilethurcaspznnozflfecz/Build/Products/Debug-iphonesimulator/RxSwift.framework"; sourceTree = "<group>"; };
-		10B7E0521EBF937E009314ED /* Swiftz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swiftz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B7E0A61EBF9C5F009314ED /* RxAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B7E0A81EBF9C5F009314ED /* RxAlamofire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxAlamofire.h; sourceTree = "<group>"; };
 		10B7E0A91EBF9C5F009314ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10B7E0C31EBF9C81009314ED /* URLSession+RxAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+RxAlamofire.swift"; sourceTree = "<group>"; };
 		10B7E0C51EBF9C86009314ED /* RxAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAlamofire.swift; sourceTree = "<group>"; };
-		10E594211EC3E4E90058C7D3 /* FlickrKitFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKitFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10E594241EC3EDB20058C7D3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		10E594261EC3EE1A0058C7D3 /* FlickrCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrCollectionViewController.swift; sourceTree = "<group>"; };
 		10E594281EC3EE430058C7D3 /* PixabayCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixabayCollectionViewController.swift; sourceTree = "<group>"; };
@@ -153,13 +153,8 @@
 		10FAD52B1EBCCB9D0058C602 /* RXTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RXTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FAD52F1EBCCB9D0058C602 /* RXTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXTestUITests.swift; sourceTree = "<group>"; };
 		10FAD5311EBCCB9D0058C602 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10FAD53D1EBF7A810058C602 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
-		10FAD55D1EBF87930058C602 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		10FAD5601EBF87930058C602 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		10FAD5631EBF87930058C602 /* RxBlocking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxBlocking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FAD56B1EBF88A30058C602 /* RxAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxAlamofire.swift; path = RxAlamofire/Sources/RxAlamofire.swift; sourceTree = SOURCE_ROOT; };
 		10FAD56D1EBF88AF0058C602 /* URLSession+RxAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URLSession+RxAlamofire.swift"; path = "RxAlamofire/Sources/Cocoa/URLSession+RxAlamofire.swift"; sourceTree = SOURCE_ROOT; };
-		10FAD5851EBF8BF00058C602 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,9 +162,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10B7E0CA1EBF9D08009314ED /* RxCocoa.framework in Frameworks */,
-				10B7E0C91EBF9CF6009314ED /* RxSwift.framework in Frameworks */,
-				10B7E0C81EBF9CEC009314ED /* Alamofire.framework in Frameworks */,
+				104392C71EC508F80050D633 /* RxCocoa.framework in Frameworks */,
+				104392C31EC506DC0050D633 /* RxSwift.framework in Frameworks */,
+				104392C41EC506DE0050D633 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +172,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				104392C61EC507080050D633 /* RxCocoa.framework in Frameworks */,
+				1016BA6B1EC5068300FCA0CC /* FlickrKitFramework.framework in Frameworks */,
+				10B0F3CD1EC51B580032779D /* RxDataSources.framework in Frameworks */,
+				1016BA6C1EC5068600FCA0CC /* Swiftz.framework in Frameworks */,
+				1016BA6D1EC5068C00FCA0CC /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,14 +192,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10B6BDAE1EC41C0800B2233B /* RxDataSources.framework in Frameworks */,
-				10FAD5861EBF8BF00058C602 /* Alamofire.framework in Frameworks */,
-				10FAD55E1EBF87930058C602 /* RxSwift.framework in Frameworks */,
+				1016BA691EC5066A00FCA0CC /* FlickrKitFramework.framework in Frameworks */,
 				10E594441EC3EED10058C7D3 /* DataModel.framework in Frameworks */,
-				10FAD5611EBF87930058C602 /* RxCocoa.framework in Frameworks */,
-				10FAD5641EBF87930058C602 /* RxBlocking.framework in Frameworks */,
-				10E594221EC3E4E90058C7D3 /* FlickrKitFramework.framework in Frameworks */,
-				10B7E0531EBF937E009314ED /* Swiftz.framework in Frameworks */,
+				1016BA5A1EC5066A00FCA0CC /* Alamofire.framework in Frameworks */,
+				10B0F3CB1EC51B3F0032779D /* RxDataSources.framework in Frameworks */,
+				1016BA601EC5066A00FCA0CC /* RxCocoa.framework in Frameworks */,
+				1016BA661EC5066A00FCA0CC /* Swiftz.framework in Frameworks */,
 				10B7E0BB1EBF9C5F009314ED /* RxAlamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,9 +222,13 @@
 		10B7E0301EBF904C009314ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				10B7E0311EBF904C009314ED /* Alamofire.framework */,
-				10B7E0321EBF904C009314ED /* RxCocoa.framework */,
-				10B7E0331EBF904C009314ED /* RxSwift.framework */,
+				10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */,
+				104392C51EC507080050D633 /* RxCocoa.framework */,
+				1016BA681EC5066A00FCA0CC /* FlickrKitFramework.framework */,
+				1016BA651EC5066A00FCA0CC /* Swiftz.framework */,
+				1016BA5F1EC5066A00FCA0CC /* RxCocoa.framework */,
+				1016BA5C1EC5066A00FCA0CC /* RxSwift.framework */,
+				1016BA591EC5066A00FCA0CC /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,14 +275,6 @@
 		10FAD5031EBCCB9D0058C602 = {
 			isa = PBXGroup;
 			children = (
-				10B6BDAD1EC41C0800B2233B /* RxDataSources.framework */,
-				10E594211EC3E4E90058C7D3 /* FlickrKitFramework.framework */,
-				10B7E0521EBF937E009314ED /* Swiftz.framework */,
-				10FAD5851EBF8BF00058C602 /* Alamofire.framework */,
-				10FAD5631EBF87930058C602 /* RxBlocking.framework */,
-				10FAD5601EBF87930058C602 /* RxCocoa.framework */,
-				10FAD55D1EBF87930058C602 /* RxSwift.framework */,
-				10FAD53D1EBF7A810058C602 /* Package.swift */,
 				10FAD50E1EBCCB9D0058C602 /* RXTest */,
 				10FAD5231EBCCB9D0058C602 /* RXTestTests */,
 				10FAD52E1EBCCB9D0058C602 /* RXTestUITests */,
@@ -502,6 +496,7 @@
 					};
 					10FAD50B1EBCCB9D0058C602 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 79YC3H9WVP;
 						ProvisioningStyle = Automatic;
 					};
 					10FAD51F1EBCCB9D0058C602 = {
@@ -914,10 +909,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/RxDataSources/build/Debug-iphoneos",
-				);
+				DEVELOPMENT_TEAM = 79YC3H9WVP;
 				INFOPLIST_FILE = RXTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Weaslefloss.RXTest;
@@ -931,10 +923,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/RxDataSources/build/Debug-iphoneos",
-				);
+				DEVELOPMENT_TEAM = 79YC3H9WVP;
 				INFOPLIST_FILE = RXTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Weaslefloss.RXTest;

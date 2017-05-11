@@ -11,12 +11,12 @@
       location = "group:RxSwift/Rx.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:RxDataSources/RxDataSources.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Swiftz/Swiftz.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:FlickrKit/FlickrKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RxDataSources/RxDataSources.xcodeproj">
    </FileRef>
 </Workspace>

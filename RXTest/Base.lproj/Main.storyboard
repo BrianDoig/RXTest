@@ -150,16 +150,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="99" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-VO-rpr">
-                                            <rect key="frame" x="16" y="16" width="67" height="62"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-VO-rpr">
+                                            <rect key="frame" x="8" y="8" width="83" height="78"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="eOa-VO-rpr" firstAttribute="leading" secondItem="pmY-Tr-LjA" secondAttribute="leadingMargin" constant="8" id="Aas-CV-5U8"/>
-                                    <constraint firstItem="eOa-VO-rpr" firstAttribute="top" secondItem="pmY-Tr-LjA" secondAttribute="topMargin" constant="8" id="mt2-tH-cpr"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="eOa-VO-rpr" secondAttribute="trailing" constant="8" id="tvp-X0-SGE"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="eOa-VO-rpr" secondAttribute="bottom" constant="8" id="zdl-Ss-KMq"/>
+                                    <constraint firstItem="eOa-VO-rpr" firstAttribute="leading" secondItem="pmY-Tr-LjA" secondAttribute="leadingMargin" id="Aas-CV-5U8"/>
+                                    <constraint firstItem="eOa-VO-rpr" firstAttribute="top" secondItem="pmY-Tr-LjA" secondAttribute="topMargin" id="mt2-tH-cpr"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="eOa-VO-rpr" secondAttribute="trailing" id="tvp-X0-SGE"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="eOa-VO-rpr" secondAttribute="bottom" id="zdl-Ss-KMq"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="eOa-VO-rpr" id="zSY-1q-hEt"/>
