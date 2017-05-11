@@ -150,7 +150,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="99" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-VO-rpr">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-VO-rpr">
                                             <rect key="frame" x="16" y="16" width="67" height="62"/>
                                         </imageView>
                                     </subviews>
@@ -162,7 +162,7 @@
                                     <constraint firstAttribute="bottomMargin" secondItem="eOa-VO-rpr" secondAttribute="bottom" constant="8" id="zdl-Ss-KMq"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="imageView" destination="eOa-VO-rpr" id="n1D-rz-0Kr"/>
+                                    <outlet property="imageView" destination="eOa-VO-rpr" id="zSY-1q-hEt"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -214,4 +214,7 @@
             <point key="canvasLocation" x="-86" y="35"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PlaceholderImage" width="2400" height="2400"/>
+    </resources>
 </document>

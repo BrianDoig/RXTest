@@ -28,10 +28,10 @@ class FlickrCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
 		cvDataSource.configureCell = { [weak self] (ds, cv, ip, item) in
-			let cell = (cv.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: ip) as? ImageCollectionViewCell) ?? ImageCollectionViewCell()
+			let cell = cv.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: ip) as! ImageCollectionViewCell
 			
 			if let imageView = cell.imageView,
 				let strongSelf = self  {
@@ -41,6 +41,8 @@ class FlickrCollectionViewController: UICollectionViewController {
 			
 			return cell
 		}
+		
+		self.collectionView?.dataSource = nil
 		
 		if let cv = self.collectionView {
 			flickrInterestingGetImages()
