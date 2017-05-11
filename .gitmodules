@@ -7,3 +7,6 @@
 [submodule "Swiftz"]
 	path = Swiftz
 	url = https://github.com/typelift/Swiftz.git
+[submodule "FlickrKit"]
+	path = FlickrKit
+	url = https://github.com/devedup/FlickrKit.git

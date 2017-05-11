@@ -17,6 +17,8 @@
 		10B7E0C81EBF9CEC009314ED /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0311EBF904C009314ED /* Alamofire.framework */; };
 		10B7E0C91EBF9CF6009314ED /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0331EBF904C009314ED /* RxSwift.framework */; };
 		10B7E0CA1EBF9D08009314ED /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0321EBF904C009314ED /* RxCocoa.framework */; };
+		10E594221EC3E4E90058C7D3 /* FlickrKitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E594211EC3E4E90058C7D3 /* FlickrKitFramework.framework */; };
+		10E594231EC3E4E90058C7D3 /* FlickrKitFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E594211EC3E4E90058C7D3 /* FlickrKitFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10FAD5101EBCCB9D0058C602 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FAD50F1EBCCB9D0058C602 /* AppDelegate.swift */; };
 		10FAD5121EBCCB9D0058C602 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FAD5111EBCCB9D0058C602 /* ViewController.swift */; };
 		10FAD5151EBCCB9D0058C602 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FAD5131EBCCB9D0058C602 /* Main.storyboard */; };
@@ -69,6 +71,7 @@
 				10FAD5651EBF87930058C602 /* RxBlocking.framework in Embed Frameworks */,
 				10FAD5871EBF8BF00058C602 /* Alamofire.framework in Embed Frameworks */,
 				10FAD55F1EBF87930058C602 /* RxSwift.framework in Embed Frameworks */,
+				10E594231EC3E4E90058C7D3 /* FlickrKitFramework.framework in Embed Frameworks */,
 				10B7E0541EBF937E009314ED /* Swiftz.framework in Embed Frameworks */,
 				10B7E0BC1EBF9C5F009314ED /* RxAlamofire.framework in Embed Frameworks */,
 			);
@@ -87,6 +90,7 @@
 		10B7E0A91EBF9C5F009314ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10B7E0C31EBF9C81009314ED /* URLSession+RxAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+RxAlamofire.swift"; sourceTree = "<group>"; };
 		10B7E0C51EBF9C86009314ED /* RxAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAlamofire.swift; sourceTree = "<group>"; };
+		10E594211EC3E4E90058C7D3 /* FlickrKitFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKitFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FAD50C1EBCCB9D0058C602 /* RXTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RXTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FAD50F1EBCCB9D0058C602 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FAD5111EBCCB9D0058C602 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 				10FAD55E1EBF87930058C602 /* RxSwift.framework in Frameworks */,
 				10FAD5611EBF87930058C602 /* RxCocoa.framework in Frameworks */,
 				10FAD5641EBF87930058C602 /* RxBlocking.framework in Frameworks */,
+				10E594221EC3E4E90058C7D3 /* FlickrKitFramework.framework in Frameworks */,
 				10B7E0531EBF937E009314ED /* Swiftz.framework in Frameworks */,
 				10B7E0BB1EBF9C5F009314ED /* RxAlamofire.framework in Frameworks */,
 			);
@@ -183,6 +188,7 @@
 		10FAD5031EBCCB9D0058C602 = {
 			isa = PBXGroup;
 			children = (
+				10E594211EC3E4E90058C7D3 /* FlickrKitFramework.framework */,
 				10B7E0521EBF937E009314ED /* Swiftz.framework */,
 				10FAD5851EBF8BF00058C602 /* Alamofire.framework */,
 				10FAD5631EBF87930058C602 /* RxBlocking.framework */,

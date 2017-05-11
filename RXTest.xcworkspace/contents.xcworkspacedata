@@ -13,4 +13,7 @@
    <FileRef
       location = "group:Swiftz/Swiftz.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:FlickrKit/FlickrKit.xcodeproj">
+   </FileRef>
 </Workspace>

@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 import RxAlamofire
 import Swiftz
+import FlickrKitFramework
 
 typealias Result<T> = Either<Error, T>
 
