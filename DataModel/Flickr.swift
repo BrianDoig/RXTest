@@ -13,7 +13,14 @@ import Swiftz
 
 public typealias AsyncImage = Observable<UIImage>
 
-public func flickrInterestingGetURL() -> Observable<[URL]> {
+public struct ImageData<T, U> {
+	public let thumbnail: T
+	public let image: U
+}
+
+
+
+public func flickrInterestingGetURL() -> Observable<[ImageData<URL, URL>]> {
 	return Observable.create { (observer) -> Disposable in
 		// Start with an empty list
 		observer.on(.next([]))
@@ -30,10 +37,19 @@ public func flickrInterestingGetURL() -> Observable<[URL]> {
 						
 						if let photoArray = topPhotos["photo" as NSObject] as? [[AnyHashable: Any]] {
 							
-							let photoURLs = photoArray.map(curry(FlickrKit.shared().photoURL(for:fromPhotoDictionary:))(.small240))
+							var result = [ImageData<URL, URL>]()
+							
+							for photoDictionary in photoArray {
+								let thumbnailURL = FlickrKit.shared().photoURL(for: .small240, fromPhotoDictionary: photoDictionary)
+								let photoURL = FlickrKit.shared().photoURL(for: FKPhotoSize.large1024, fromPhotoDictionary: photoDictionary)
+								let data = ImageData(thumbnail: thumbnailURL, image: photoURL)
+								result.append(data)
+							}
+							
+							//let photoURLs = photoArray.map(curry(FlickrKit.shared().photoURL(for:fromPhotoDictionary:))(.small240))
 							
 							// Return the array
-							observer.on(.next(photoURLs))
+							observer.on(.next(result))
 						}
 					}
 				}
@@ -47,9 +63,12 @@ public func flickrInterestingGetURL() -> Observable<[URL]> {
 	}
 }
 
-public func flickrInterestingGetImages() -> Observable<[AsyncImage]> {
-	return flickrInterestingGetURL().map({ (urls) -> [AsyncImage] in
-		return urls.map(getImage)
+public func flickrInterestingGetImages() -> Observable<[ImageData<AsyncImage, URL>]> {
+	return flickrInterestingGetURL().map({ (urls) -> [ImageData<AsyncImage, URL>] in
+		return urls.map {
+			ImageData(thumbnail: getImage(url: $0.thumbnail),
+			          image: $0.image)
+		}
 	})
 }
 

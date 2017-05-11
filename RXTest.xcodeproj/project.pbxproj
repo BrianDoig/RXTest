@@ -22,6 +22,7 @@
 		104392C41EC506DE0050D633 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; };
 		104392C61EC507080050D633 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104392C51EC507080050D633 /* RxCocoa.framework */; };
 		104392C71EC508F80050D633 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104392C51EC507080050D633 /* RxCocoa.framework */; };
+		10636DB11EC5315400C4F7B0 /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0A61EBF9C5F009314ED /* RxAlamofire.framework */; };
 		10B0F3CB1EC51B3F0032779D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */; };
 		10B0F3CC1EC51B3F0032779D /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10B0F3CD1EC51B580032779D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */; };
@@ -172,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10636DB11EC5315400C4F7B0 /* RxAlamofire.framework in Frameworks */,
 				104392C61EC507080050D633 /* RxCocoa.framework in Frameworks */,
 				1016BA6B1EC5068300FCA0CC /* FlickrKitFramework.framework in Frameworks */,
 				10B0F3CD1EC51B580032779D /* RxDataSources.framework in Frameworks */,

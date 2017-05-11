@@ -40,8 +40,9 @@ class FlickrCollectionViewController: UICollectionViewController {
 			if let imageView = cell.imageView,
 				let strongSelf = self  {
 				// Bind the image stream to the image view
-				item.image.bind(to: imageView.rx.image)
+				item.image.thumbnail.bind(to: imageView.rx.image)
 					.disposed(by: strongSelf.disposeBag)
+				
 			}
 			
 			// Return the generated table view cell.
@@ -60,6 +61,12 @@ class FlickrCollectionViewController: UICollectionViewController {
 	private func generateNewImageDatasource() {
 		// Presuming the collection view still exists (it's weak to avoid memory leak)
 		if let cv = self.collectionView {
+//			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
+//				self.collectionView?.reloadData()
+//				self.collectionView?.collectionViewLayout.invalidateLayout()
+//				print("*** RELOAD ***")
+//			})
+			
 			// Generate the data stream, transform it into table view sections,
 			// observe it on the main queue, and then bind the datasource
 			// to the collection view.

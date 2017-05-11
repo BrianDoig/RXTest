@@ -15,7 +15,7 @@ import Swiftz
 import RxDataSources
 
 struct FlickrCellData {
-	let image: Observable<UIImage>
+	let image: ImageData<AsyncImage, URL>
 }
 
 struct SectionOfFlickrCellData {
