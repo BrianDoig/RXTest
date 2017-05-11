@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="882" y="35"/>
         </scene>
-        <!--Item 2-->
+        <!--Pixabay-->
         <scene sceneID="nSK-kF-p6Z">
             <objects>
                 <viewController id="t5W-fh-h9V" sceneMemberID="viewController">
@@ -59,16 +59,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="e2C-s2-Onn"/>
+                    <tabBarItem key="tabBarItem" title="Pixabay" id="e2C-s2-Onn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8an-pd-4V4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2783.1999999999998" y="361.16941529235385"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Pixabay Collection View Controller-->
         <scene sceneID="6UF-96-YZA">
             <objects>
-                <collectionViewController id="zDt-cj-mmi" sceneMemberID="viewController">
+                <collectionViewController id="zDt-cj-mmi" customClass="PixabayCollectionViewController" customModule="RXTest" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="tEm-jJ-2PJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="3844" y="365.21739130434787"/>
         </scene>
-        <!--Item 1-->
+        <!--Flickr-->
         <scene sceneID="k3n-lQ-bcg">
             <objects>
                 <viewController id="wlk-v3-WJh" sceneMemberID="viewController">
@@ -121,16 +121,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="rGq-Do-Rc8"/>
+                    <tabBarItem key="tabBarItem" title="Flickr" id="rGq-Do-Rc8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxH-ox-yet" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2783.1999999999998" y="-292.80359820089956"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Flickr Collection View Controller-->
         <scene sceneID="ejh-ZY-F1k">
             <objects>
-                <collectionViewController id="biE-tZ-mmR" sceneMemberID="viewController">
+                <collectionViewController id="biE-tZ-mmR" customClass="FlickrCollectionViewController" customModule="RXTest" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="97e-eh-pes">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="3844" y="-293.25337331334333"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="MKb-My-KGD">
             <objects>
-                <tabBarController id="42g-xI-fGv" sceneMemberID="viewController">
+                <tabBarController id="42g-xI-fGv" customClass="MainTabBarViewController" customModule="RXTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="auw-V8-S4q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
