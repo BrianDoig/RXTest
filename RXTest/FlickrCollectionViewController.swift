@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import DataModel
+import RxSwift
+import RxCocoa
+import Swiftz
+import RxDataSources
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "FlickrCell"
 
 class FlickrCollectionViewController: UICollectionViewController {
 
+	let cvDataSource = RxCollectionViewSectionedReloadDataSource<SectionOfFlickrCellData>()
+	
+	let disposeBag = DisposeBag()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +30,30 @@ class FlickrCollectionViewController: UICollectionViewController {
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
+		cvDataSource.configureCell = { [weak self] (ds, cv, ip, item) in
+			let cell = (cv.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: ip) as? ImageCollectionViewCell) ?? ImageCollectionViewCell()
+			
+			if let imageView = cell.imageView,
+				let strongSelf = self  {
+				item.image.bind(to: imageView.rx.image)
+					.disposed(by: strongSelf.disposeBag)
+			}
+			
+			return cell
+		}
+		
+		if let cv = self.collectionView {
+			flickrInterestingGetImages()
+				.map({ (images) -> [SectionOfFlickrCellData] in
+					return [
+						SectionOfFlickrCellData(header: "", items: images.map(FlickrCellData.init))
+					]
+				})
+				.bind(to: cv.rx.items(dataSource: cvDataSource))
+				.disposed(by: disposeBag)
+		
+		}
+		
         // Do any additional setup after loading the view.
     }
 
@@ -41,24 +74,24 @@ class FlickrCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
-        return cell
-    }
+//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//
+//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of items
+//        return 0
+//    }
+//
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+//    
+//        // Configure the cell
+//    
+//        return cell
+//    }
 
     // MARK: UICollectionViewDelegate
 

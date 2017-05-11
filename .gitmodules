@@ -10,3 +10,6 @@
 [submodule "FlickrKit"]
 	path = FlickrKit
 	url = https://github.com/devedup/FlickrKit.git
+[submodule "RxDataSources"]
+	path = RxDataSources
+	url = https://github.com/RxSwiftCommunity/RxDataSources.git

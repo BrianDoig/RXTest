@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>RXTest.xcscheme</key>
+		<key>DataModel.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>37</integer>
+		</dict>
+		<key>DataModelTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>38</integer>
+		</dict>
+		<key>RXTest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -43,6 +53,16 @@
 			<true/>
 		</dict>
 		<key>10B7E0AD1EBF9C5F009314ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>10E5942E1EC3EED10058C7D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>10E594361EC3EED10058C7D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
