@@ -14,6 +14,34 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C8A56AD61AD7424700B4673B"
+               BuildableName = "RxSwift.framework"
+               BlueprintName = "RxSwift-iOS"
+               ReferencedContainer = "container:RxSwift/Rx.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C80938F51B8A71760088E94D"
+               BuildableName = "RxCocoa.framework"
+               BlueprintName = "RxCocoa-iOS"
+               ReferencedContainer = "container:RxSwift/Rx.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "10FAD50B1EBCCB9D0058C602"
                BuildableName = "RXTest.app"
                BlueprintName = "RXTest"

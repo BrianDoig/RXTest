@@ -21,7 +21,7 @@ class FlickrCollectionViewController: UICollectionViewController {
 	
 	let disposeBag = DisposeBag()
 	
-    override func viewDidLoad() {
+	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -50,25 +50,17 @@ class FlickrCollectionViewController: UICollectionViewController {
 			return cell
 		}
 		
-		let itemSelected = self.collectionView?.rx.itemSelected
-		
 		// Handle image presses
-		itemSelected?.subscribe(onNext: { [weak self] (indexPath) in
+		self.collectionView?.rx.itemSelected.subscribe(onNext: { [weak self] (indexPath) in
+			// Make sure self stays around for the duration of this async block
+			// if it has not already gone away.
 			if let strongSelf = self {
-				print(indexPath)
-				let imageStream = getImage(url: strongSelf.cvDataSource[indexPath].image.image)
+				// Get our async image for that index path
+				let asyncImage = getImage(url: strongSelf.cvDataSource[indexPath].image.image)
 				
-				let storyboard = UIStoryboard(name: "Main", bundle: nil)
-				
-				if let vc = storyboard.instantiateViewController(withIdentifier: "ImageViewController") as? ImageViewController {
-					
-					vc.image = imageStream
-
-					let nc = self?.navigationController
-					
-					nc?.pushViewController(vc, animated: true)
-//					strongSelf.performSegue(withIdentifier: "ShowImage", sender: strongSelf)
-				}
+				// Perform the segue passing the asyncImage as the sender so
+				// that it can be set into the view controller as it is loaded.
+				strongSelf.performSegue(withIdentifier: "ShowImage", sender: asyncImage)
 			}
 		}).disposed(by: disposeBag)
 		
@@ -80,6 +72,14 @@ class FlickrCollectionViewController: UICollectionViewController {
 		// Create the image datasource
 		self.generateNewImageDatasource()
     }
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let vc = segue.destination as? ImageViewController {
+			if let asyncImage = sender as? AsyncImage{
+				vc.image = asyncImage
+			}
+		}
+	}
 	
 	private func generateNewImageDatasource() {
 		// Presuming the collection view still exists (it's weak to avoid memory leak)
