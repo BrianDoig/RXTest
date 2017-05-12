@@ -50,6 +50,29 @@ class FlickrCollectionViewController: UICollectionViewController {
 			return cell
 		}
 		
+		let itemSelected = self.collectionView?.rx.itemSelected
+		
+		// Handle image presses
+		itemSelected?.subscribe(onNext: { [weak self] (indexPath) in
+			if let strongSelf = self {
+				print(indexPath)
+				let imageStream = getImage(url: strongSelf.cvDataSource[indexPath].image.image)
+				
+				let storyboard = UIStoryboard(name: "Main", bundle: nil)
+				
+				if let vc = storyboard.instantiateViewController(withIdentifier: "ImageViewController") as? ImageViewController {
+					
+					vc.image = imageStream
+
+					let nc = self?.navigationController
+					
+					nc?.pushViewController(vc, animated: true)
+//					strongSelf.performSegue(withIdentifier: "ShowImage", sender: strongSelf)
+				}
+			}
+		}).disposed(by: disposeBag)
+		
+		
 		// Need to set this to nil to override the existing one set in the storyboard.
 		// Otherwise the library will throw an assert.
 		self.collectionView?.dataSource = nil
@@ -61,12 +84,6 @@ class FlickrCollectionViewController: UICollectionViewController {
 	private func generateNewImageDatasource() {
 		// Presuming the collection view still exists (it's weak to avoid memory leak)
 		if let cv = self.collectionView {
-//			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
-//				self.collectionView?.reloadData()
-//				self.collectionView?.collectionViewLayout.invalidateLayout()
-//				print("*** RELOAD ***")
-//			})
-			
 			// Generate the data stream, transform it into table view sections,
 			// observe it on the main queue, and then bind the datasource
 			// to the collection view.
