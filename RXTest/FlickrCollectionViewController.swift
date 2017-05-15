@@ -36,16 +36,11 @@ class FlickrCollectionViewController: UICollectionViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
+		// Set up the refresh control
 		collectionView?.refreshControl = refreshControl
-		
 		refreshControl.addTarget(self, action: #selector(FlickrCollectionViewController.refresh), for: .valueChanged)
+
 		
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-//        self.collectionView!.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
 		// Create the callback that generates collection view cells
 		cvDataSource.configureCell = { [weak self] (ds, cv, ip, item) in
 			// Dequeue the cell and force cast it.  Not super safe but it 
