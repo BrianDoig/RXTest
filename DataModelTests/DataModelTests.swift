@@ -33,34 +33,6 @@ class DataModelTests: XCTestCase {
         super.tearDown()
     }
 
-	func testFlickr() {
-//		let expect = expectation(description: "Flickr")
-		
-		let flickr = flickrInterestingGetURL()
-		
-		let blocked = flickr.toBlocking()
-		
-		let result = try? blocked.toArray()
-		
-		print(result ?? "BOOM!")
-		
-//		waitForExpectations(timeout: 10)
-	}
-	
-	func testFlickrImages() {
-//		let expect = expectation(description: "Flickr")
-		
-		let networkCall = flickrInterestingGetImages()
-		
-		if let images = blockingLast(networkCall) {
-			let uiimages = images.flatMap(blockingLast)
-			uiimages.forEach { print($0) }
-		}
-
-	
-//		waitForExpectations(timeout: 30)
-	}
-	
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

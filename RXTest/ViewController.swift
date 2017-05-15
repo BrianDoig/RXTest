@@ -27,12 +27,6 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
-		let foo = Optional.liftM2(curry(+))(a)(b)
-		print(String(describing: foo))
-		let bar = curry(*) <*> a <*> b
-		print(String(describing: bar))
-		let baz = add <^> a <*> b
-		print(String(describing: baz))
 	}
 
 	override func didReceiveMemoryWarning() {

@@ -34,6 +34,9 @@
 		10B7E0BC1EBF9C5F009314ED /* RxAlamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0A61EBF9C5F009314ED /* RxAlamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10B7E0C41EBF9C81009314ED /* URLSession+RxAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B7E0C31EBF9C81009314ED /* URLSession+RxAlamofire.swift */; };
 		10B7E0C61EBF9C86009314ED /* RxAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B7E0C51EBF9C86009314ED /* RxAlamofire.swift */; };
+		10BBAFAD1ECA5546008495F9 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BBAFAA1ECA5546008495F9 /* RxBlocking.framework */; };
+		10BBAFAE1ECA5546008495F9 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BBAFAB1ECA5546008495F9 /* RxCocoa.framework */; };
+		10BBAFAF1ECA5546008495F9 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BBAFAC1ECA5546008495F9 /* RxSwift.framework */; };
 		10E594251EC3EDB20058C7D3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E594241EC3EDB20058C7D3 /* MainTabBarViewController.swift */; };
 		10E594271EC3EE1A0058C7D3 /* FlickrCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E594261EC3EE1A0058C7D3 /* FlickrCollectionViewController.swift */; };
 		10E594291EC3EE430058C7D3 /* PixabayCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E594281EC3EE430058C7D3 /* PixabayCollectionViewController.swift */; };
@@ -133,6 +136,9 @@
 		10B7E0A91EBF9C5F009314ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10B7E0C31EBF9C81009314ED /* URLSession+RxAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+RxAlamofire.swift"; sourceTree = "<group>"; };
 		10B7E0C51EBF9C86009314ED /* RxAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAlamofire.swift; sourceTree = "<group>"; };
+		10BBAFAA1ECA5546008495F9 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = "RxSwift/build/Debug-iphoneos/RxBlocking.framework"; sourceTree = "<group>"; };
+		10BBAFAB1ECA5546008495F9 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = "../../../Library/Developer/Xcode/DerivedData/RXTest-grwnfeilethurcaspznnozflfecz/Build/Products/Debug-iphonesimulator/RxCocoa.framework"; sourceTree = "<group>"; };
+		10BBAFAC1ECA5546008495F9 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "../../../Library/Developer/Xcode/DerivedData/RXTest-grwnfeilethurcaspznnozflfecz/Build/Products/Debug-iphonesimulator/RxSwift.framework"; sourceTree = "<group>"; };
 		10E594241EC3EDB20058C7D3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		10E594261EC3EE1A0058C7D3 /* FlickrCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrCollectionViewController.swift; sourceTree = "<group>"; };
 		10E594281EC3EE430058C7D3 /* PixabayCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixabayCollectionViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +216,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10BBAFAD1ECA5546008495F9 /* RxBlocking.framework in Frameworks */,
+				10BBAFAE1ECA5546008495F9 /* RxCocoa.framework in Frameworks */,
+				10BBAFAF1ECA5546008495F9 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +235,9 @@
 		10B7E0301EBF904C009314ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10BBAFAA1ECA5546008495F9 /* RxBlocking.framework */,
+				10BBAFAB1ECA5546008495F9 /* RxCocoa.framework */,
+				10BBAFAC1ECA5546008495F9 /* RxSwift.framework */,
 				10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */,
 				104392C51EC507080050D633 /* RxCocoa.framework */,
 				1016BA681EC5066A00FCA0CC /* FlickrKitFramework.framework */,
@@ -943,6 +955,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RxSwift/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = RXTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Weaslefloss.RXTestTests;
@@ -957,6 +973,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RxSwift/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = RXTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Weaslefloss.RXTestTests;

@@ -14,21 +14,47 @@ import RxCocoa
 import Swiftz
 import RxDataSources
 
-struct FlickrCellData {
+struct FlickrCellData: IdentifiableType, Equatable {
+	typealias Identity = Int
+	
 	let image: ImageData<AsyncImage, URL>
+	
+	var identity : Identity {
+		return image.image.hashValue ^ image.thumbnail.value.hashValue
+	}
+	
+	static func ==(lhs: FlickrCellData, rhs: FlickrCellData) -> Bool {
+		return lhs.image.image == rhs.image.image
+			&& lhs.image.thumbnail.value == rhs.image.thumbnail.value
+	}
 }
 
-struct SectionOfFlickrCellData {
+struct SectionOfFlickrCellData: SectionModelType, IdentifiableType {
+	typealias Item = FlickrCellData
+	typealias Identity = Int
+	
 	var header: String
 	var items: [Item]
-}
-
-extension SectionOfFlickrCellData: SectionModelType {
-	typealias Item = FlickrCellData
+	
+	var identity: Identity {
+		return items.reduce(header.hash, { (result, cellData) -> Identity in
+			return result
+				^ cellData.image.image.hashValue
+				^ cellData.image.thumbnail.value.hashValue
+		})
+	}
 	
 	init(original: SectionOfFlickrCellData, items: [Item]) {
 		self = original
 		self.items = items
 	}
+	
+	init(header: String, items: [Item]) {
+		self.header = header
+		self.items = items
+	}
 }
 
+extension SectionOfFlickrCellData: AnimatableSectionModelType {
+	
+}

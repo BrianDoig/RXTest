@@ -17,13 +17,29 @@ private let reuseIdentifier = "FlickrCell"
 
 class FlickrCollectionViewController: UICollectionViewController {
 
-	let cvDataSource = RxCollectionViewSectionedReloadDataSource<SectionOfFlickrCellData>()
+	let cvDataSource = RxCollectionViewSectionedAnimatedDataSource<SectionOfFlickrCellData>()
 	
 	let disposeBag = DisposeBag()
 	
+	let refreshControl = UIRefreshControl()
+	
+	private let datasource = FlickrDatasource()
+	
+	@objc private func refresh() {
+		datasource.reset()
+		datasource.next()
+			.subscribe({ [weak self] _ in
+				self?.refreshControl.endRefreshing()
+			}).disposed(by: disposeBag)
+	}
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		collectionView?.refreshControl = refreshControl
+		
+		refreshControl.addTarget(self, action: #selector(FlickrCollectionViewController.refresh), for: .valueChanged)
+		
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,13 +56,14 @@ class FlickrCollectionViewController: UICollectionViewController {
 			if let imageView = cell.imageView,
 				let strongSelf = self  {
 				// Bind the image stream to the image view
-				item.image.thumbnail.bind(to: imageView.rx.image)
+				item.image.thumbnail.asObservable()
+					.debounce(0.3, scheduler: MainScheduler.instance)
+					.bind(to: imageView.rx.image)
 					.disposed(by: strongSelf.disposeBag)
 				
 			}
 			
 			// Return the generated table view cell.
-			print(cell)
 			return cell
 		}
 		
@@ -87,13 +104,14 @@ class FlickrCollectionViewController: UICollectionViewController {
 			// Generate the data stream, transform it into table view sections,
 			// observe it on the main queue, and then bind the datasource
 			// to the collection view.
-			flickrInterestingGetImages()
+			datasource.images
 				.map({ (images) -> [SectionOfFlickrCellData] in
 					return [
 						SectionOfFlickrCellData(header: "", items: images.map(FlickrCellData.init))
 					]
 				})
 				.observeOn(MainScheduler.instance)
+				.debounce(0.3, scheduler: MainScheduler.instance)
 				.bind(to: cv.rx.items(dataSource: cvDataSource))
 				.disposed(by: disposeBag)
 			
