@@ -11,11 +11,26 @@ import FlickrKitFramework
 import RxSwift
 import Swiftz
 
-public typealias AsyncImage = Variable<UIImage>
+public struct Image {
+	public let image: UIImage?
+	public let url: URL
+	
+	public init(_ image: UIImage?, _ url: URL) {
+		self.image = image
+		self.url = url
+	}
+}
 
-public struct ImageData<T, U> {
+public typealias AsyncImage = Variable<Image>
+
+public class ImageData<T, U> {
 	public let thumbnail: T
 	public let image: U
+	
+	public init(thumbnail: T, image: U) {
+		self.thumbnail = thumbnail
+		self.image = image
+	}
 }
 
 public class FlickrDatasource {
@@ -23,7 +38,7 @@ public class FlickrDatasource {
 	
 	var flickrInteresting = FKFlickrInterestingnessGetList()
 	
-	public let data = Variable<[ImageData<URL, URL>]>([])
+	public let data = Variable<[ImageData<AsyncImage, URL>]>([])
 	
 	private var nextPage = 0
 	
@@ -62,15 +77,6 @@ public class FlickrDatasource {
 		reset()
 		// We don't care about the event finishing here, so dispose of it
 		next().subscribe({ _ in }).dispose()
-	}
-	
-	public var images: Observable<[ImageData<AsyncImage, URL>]> {
-		return data.asObservable().map({ (urls) -> [ImageData<AsyncImage, URL>] in
-			return urls.map {
-				ImageData(thumbnail: getImage(url: $0.thumbnail),
-				          image: $0.image)
-			}
-		})
 	}
 	
 	private func changePage(to: Int) {
@@ -123,15 +129,15 @@ public class FlickrDatasource {
 									
 									if let photoArray = topPhotos["photo" as NSObject] as? [[AnyHashable: Any]] {
 										
-										let result = photoArray.map { photoDictionary -> ImageData<URL, URL> in
+										let result = photoArray.map { photoDictionary -> ImageData<AsyncImage, URL> in
 											let thumbnailURL = FlickrKit.shared().photoURL(for: .small240, fromPhotoDictionary: photoDictionary)
 											let photoURL = FlickrKit.shared().photoURL(for: FKPhotoSize.large1024, fromPhotoDictionary: photoDictionary)
-											let data = ImageData(thumbnail: thumbnailURL, image: photoURL)
+											let data = ImageData(thumbnail: getImage(url: thumbnailURL), image: photoURL)
 											return data
 										}
 										
 										// Append the array of new items
-										strongSelf.data.value = strongSelf.data.value + result
+										strongSelf.data.value.append(contentsOf: result)
 									}
 								}
 								
@@ -157,17 +163,31 @@ public class FlickrDatasource {
 	
 }
 
+// Cache for images already loaded previously
+private let imageCache = NSCache<NSString, UIImage>()
+
+// This function takes a url and returns an asyncronously loading image.
 public func getImage(url: URL) -> AsyncImage {
-	let result = Variable(#imageLiteral(resourceName: "PlaceholderImage"))
+	let result: AsyncImage
 	
-	DispatchQueue.global().async {
-		// Try to get the data for the image and create an image from it
-		if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-			// Set the image as the next in the stream
-			result.value = image
-		} else {
-			// Put up an error image
-			result.value = #imageLiteral(resourceName: "errorstop")
+	if let image = imageCache.object(forKey: url.absoluteString as NSString) {
+		result = AsyncImage(Image(image, url))
+	} else {
+		result = AsyncImage(Image(nil, url))
+		
+		DispatchQueue.global().async {
+			// Try to get the data for the image and create an image from it
+			if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+//				imageCache.setObject(image,
+//				                     forKey: url.absoluteString as NSString,
+//				                     cost: Int(image.size.height * image.size.width))
+				
+				// Set the image as the next in the stream
+				result.value = Image(image, url)
+			} else {
+				// Put up an error image
+				result.value = Image(#imageLiteral(resourceName: "errorstop"), url)
+			}
 		}
 	}
 

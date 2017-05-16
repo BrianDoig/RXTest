@@ -325,12 +325,12 @@
 				10FAD5161EBCCB9D0058C602 /* Assets.xcassets */,
 				10FAD5181EBCCB9D0058C602 /* LaunchScreen.storyboard */,
 				10FAD51B1EBCCB9D0058C602 /* Info.plist */,
+				10B6BDA91EC4103000B2233B /* FlickrDatasource.swift */,
 				1025615F1EC53DA9002239AC /* ImageViewController.swift */,
 				10E594241EC3EDB20058C7D3 /* MainTabBarViewController.swift */,
 				10B6BDAB1EC4130B00B2233B /* ImageCollectionViewCell.swift */,
 				10E594281EC3EE430058C7D3 /* PixabayCollectionViewController.swift */,
 				10E594261EC3EE1A0058C7D3 /* FlickrCollectionViewController.swift */,
-				10B6BDA91EC4103000B2233B /* FlickrDatasource.swift */,
 			);
 			path = RXTest;
 			sourceTree = "<group>";

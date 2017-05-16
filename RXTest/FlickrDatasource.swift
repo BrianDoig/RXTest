@@ -20,12 +20,12 @@ struct FlickrCellData: IdentifiableType, Equatable {
 	let image: ImageData<AsyncImage, URL>
 	
 	var identity : Identity {
-		return image.image.hashValue ^ image.thumbnail.value.hashValue
+		return image.image.hashValue ^ image.thumbnail.value.url.hashValue
 	}
 	
 	static func ==(lhs: FlickrCellData, rhs: FlickrCellData) -> Bool {
 		return lhs.image.image == rhs.image.image
-			&& lhs.image.thumbnail.value == rhs.image.thumbnail.value
+			&& lhs.image.thumbnail.value.url == rhs.image.thumbnail.value.url
 	}
 }
 
@@ -40,7 +40,7 @@ struct SectionOfFlickrCellData: SectionModelType, IdentifiableType {
 		return items.reduce(header.hash, { (result, cellData) -> Identity in
 			return result
 				^ cellData.image.image.hashValue
-				^ cellData.image.thumbnail.value.hashValue
+				^ cellData.image.thumbnail.value.url.hashValue
 		})
 	}
 	

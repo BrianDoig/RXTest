@@ -31,7 +31,9 @@ class ImageViewController: UIViewController {
 			if let theImageView = imageView {
 				// Then bind it to the image view
 				_image?.asObservable()
-					.debounce(0.3, scheduler: MainScheduler.instance)
+//					.debounce(0.3, scheduler: MainScheduler.instance)
+//					.takeLast(1)
+					.map({ $0.image })
 					.bind(to: theImageView.rx.image)
 					.disposed(by: disposeBag)
 			}
@@ -53,7 +55,9 @@ class ImageViewController: UIViewController {
 		// If we have both an imageView and the image
 		if let theImageView = imageView, let theImage = image {
 			// Then bind it to the image view
-			theImage.asObservable().bind(to: theImageView.rx.image)
+			theImage.asObservable()
+				.map({ $0.image })
+				.bind(to: theImageView.rx.image)
 				.disposed(by: disposeBag)
 		}
 	}
