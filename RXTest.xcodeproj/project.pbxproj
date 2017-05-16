@@ -18,15 +18,37 @@
 		1016BA6B1EC5068300FCA0CC /* FlickrKitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA681EC5066A00FCA0CC /* FlickrKitFramework.framework */; };
 		1016BA6C1EC5068600FCA0CC /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA651EC5066A00FCA0CC /* Swiftz.framework */; };
 		1016BA6D1EC5068C00FCA0CC /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA5C1EC5066A00FCA0CC /* RxSwift.framework */; };
+		101A76C61ECBB471009EBB9A /* AnimatableSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76AC1ECBB471009EBB9A /* AnimatableSectionModel.swift */; };
+		101A76C71ECBB471009EBB9A /* AnimatableSectionModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76AD1ECBB471009EBB9A /* AnimatableSectionModelType.swift */; };
+		101A76C81ECBB471009EBB9A /* AnimatableSectionModelType+ItemPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76AE1ECBB471009EBB9A /* AnimatableSectionModelType+ItemPath.swift */; };
+		101A76C91ECBB471009EBB9A /* AnimationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76AF1ECBB471009EBB9A /* AnimationConfiguration.swift */; };
+		101A76CA1ECBB471009EBB9A /* Changeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76B01ECBB471009EBB9A /* Changeset.swift */; };
+		101A76CB1ECBB471009EBB9A /* CollectionViewSectionedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76B11ECBB471009EBB9A /* CollectionViewSectionedDataSource.swift */; };
+		101A76CC1ECBB471009EBB9A /* DataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76B21ECBB471009EBB9A /* DataSources.swift */; };
+		101A76CD1ECBB471009EBB9A /* Differentiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76B31ECBB471009EBB9A /* Differentiator.swift */; };
+		101A76CE1ECBB471009EBB9A /* IdentifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76B41ECBB471009EBB9A /* IdentifiableType.swift */; };
+		101A76CF1ECBB471009EBB9A /* IdentifiableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76B51ECBB471009EBB9A /* IdentifiableValue.swift */; };
+		101A76D01ECBB471009EBB9A /* ItemPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76B61ECBB471009EBB9A /* ItemPath.swift */; };
+		101A76D11ECBB471009EBB9A /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76B71ECBB471009EBB9A /* Optional+Extensions.swift */; };
+		101A76D21ECBB471009EBB9A /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76B81ECBB471009EBB9A /* SectionModel.swift */; };
+		101A76D31ECBB471009EBB9A /* SectionModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76B91ECBB471009EBB9A /* SectionModelType.swift */; };
+		101A76D41ECBB471009EBB9A /* TableViewSectionedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76BA1ECBB471009EBB9A /* TableViewSectionedDataSource.swift */; };
+		101A76D51ECBB471009EBB9A /* UI+SectionedViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76BB1ECBB471009EBB9A /* UI+SectionedViewType.swift */; };
+		101A76D61ECBB471009EBB9A /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76BC1ECBB471009EBB9A /* Array+Extensions.swift */; };
+		101A76D71ECBB471009EBB9A /* String+IdentifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76BD1ECBB471009EBB9A /* String+IdentifiableType.swift */; };
+		101A76D81ECBB471009EBB9A /* IntegerType+IdentifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76BE1ECBB471009EBB9A /* IntegerType+IdentifiableType.swift */; };
+		101A76D91ECBB471009EBB9A /* FloatingPointType+IdentifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76BF1ECBB471009EBB9A /* FloatingPointType+IdentifiableType.swift */; };
+		101A76DA1ECBB471009EBB9A /* RxCollectionViewSectionedAnimatedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76C11ECBB471009EBB9A /* RxCollectionViewSectionedAnimatedDataSource.swift */; };
+		101A76DB1ECBB471009EBB9A /* RxCollectionViewSectionedReloadDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76C21ECBB471009EBB9A /* RxCollectionViewSectionedReloadDataSource.swift */; };
+		101A76DC1ECBB471009EBB9A /* RxTableViewSectionedAnimatedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76C31ECBB471009EBB9A /* RxTableViewSectionedAnimatedDataSource.swift */; };
+		101A76DD1ECBB471009EBB9A /* RxTableViewSectionedReloadDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76C41ECBB471009EBB9A /* RxTableViewSectionedReloadDataSource.swift */; };
+		101A76DF1ECBB47E009EBB9A /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A76DE1ECBB47E009EBB9A /* Flickr.swift */; };
 		102561601EC53DA9002239AC /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1025615F1EC53DA9002239AC /* ImageViewController.swift */; };
 		104392C31EC506DC0050D633 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA5C1EC5066A00FCA0CC /* RxSwift.framework */; };
 		104392C41EC506DE0050D633 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; };
 		104392C61EC507080050D633 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104392C51EC507080050D633 /* RxCocoa.framework */; };
 		104392C71EC508F80050D633 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 104392C51EC507080050D633 /* RxCocoa.framework */; };
 		10636DB11EC5315400C4F7B0 /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B7E0A61EBF9C5F009314ED /* RxAlamofire.framework */; };
-		10B0F3CB1EC51B3F0032779D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */; };
-		10B0F3CC1EC51B3F0032779D /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		10B0F3CD1EC51B580032779D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */; };
 		10B6BDAA1EC4103000B2233B /* FlickrDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6BDA91EC4103000B2233B /* FlickrDatasource.swift */; };
 		10B6BDAC1EC4130B00B2233B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6BDAB1EC4130B00B2233B /* ImageCollectionViewCell.swift */; };
 		10B7E0B81EBF9C5F009314ED /* RxAlamofire.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B7E0A81EBF9C5F009314ED /* RxAlamofire.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,7 +67,6 @@
 		10E594411EC3EED10058C7D3 /* DataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 10E594311EC3EED10058C7D3 /* DataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10E594441EC3EED10058C7D3 /* DataModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E5942F1EC3EED10058C7D3 /* DataModel.framework */; };
 		10E594451EC3EED10058C7D3 /* DataModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10E5942F1EC3EED10058C7D3 /* DataModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		10E5944D1EC3EEFE0058C7D3 /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5944C1EC3EEFE0058C7D3 /* Flickr.swift */; };
 		10FAD5101EBCCB9D0058C602 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FAD50F1EBCCB9D0058C602 /* AppDelegate.swift */; };
 		10FAD5121EBCCB9D0058C602 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FAD5111EBCCB9D0058C602 /* ViewController.swift */; };
 		10FAD5151EBCCB9D0058C602 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FAD5131EBCCB9D0058C602 /* Main.storyboard */; };
@@ -110,7 +131,6 @@
 				1016BA6A1EC5066A00FCA0CC /* FlickrKitFramework.framework in Embed Frameworks */,
 				10E594451EC3EED10058C7D3 /* DataModel.framework in Embed Frameworks */,
 				1016BA5B1EC5066A00FCA0CC /* Alamofire.framework in Embed Frameworks */,
-				10B0F3CC1EC51B3F0032779D /* RxDataSources.framework in Embed Frameworks */,
 				1016BA611EC5066A00FCA0CC /* RxCocoa.framework in Embed Frameworks */,
 				1016BA671EC5066A00FCA0CC /* Swiftz.framework in Embed Frameworks */,
 				10B7E0BC1EBF9C5F009314ED /* RxAlamofire.framework in Embed Frameworks */,
@@ -126,9 +146,33 @@
 		1016BA5F1EC5066A00FCA0CC /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1016BA651EC5066A00FCA0CC /* Swiftz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swiftz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1016BA681EC5066A00FCA0CC /* FlickrKitFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKitFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		101A76AC1ECBB471009EBB9A /* AnimatableSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableSectionModel.swift; sourceTree = "<group>"; };
+		101A76AD1ECBB471009EBB9A /* AnimatableSectionModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableSectionModelType.swift; sourceTree = "<group>"; };
+		101A76AE1ECBB471009EBB9A /* AnimatableSectionModelType+ItemPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnimatableSectionModelType+ItemPath.swift"; sourceTree = "<group>"; };
+		101A76AF1ECBB471009EBB9A /* AnimationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationConfiguration.swift; sourceTree = "<group>"; };
+		101A76B01ECBB471009EBB9A /* Changeset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Changeset.swift; sourceTree = "<group>"; };
+		101A76B11ECBB471009EBB9A /* CollectionViewSectionedDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewSectionedDataSource.swift; sourceTree = "<group>"; };
+		101A76B21ECBB471009EBB9A /* DataSources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSources.swift; sourceTree = "<group>"; };
+		101A76B31ECBB471009EBB9A /* Differentiator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Differentiator.swift; sourceTree = "<group>"; };
+		101A76B41ECBB471009EBB9A /* IdentifiableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableType.swift; sourceTree = "<group>"; };
+		101A76B51ECBB471009EBB9A /* IdentifiableValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableValue.swift; sourceTree = "<group>"; };
+		101A76B61ECBB471009EBB9A /* ItemPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemPath.swift; sourceTree = "<group>"; };
+		101A76B71ECBB471009EBB9A /* Optional+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
+		101A76B81ECBB471009EBB9A /* SectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		101A76B91ECBB471009EBB9A /* SectionModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionModelType.swift; sourceTree = "<group>"; };
+		101A76BA1ECBB471009EBB9A /* TableViewSectionedDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSectionedDataSource.swift; sourceTree = "<group>"; };
+		101A76BB1ECBB471009EBB9A /* UI+SectionedViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UI+SectionedViewType.swift"; sourceTree = "<group>"; };
+		101A76BC1ECBB471009EBB9A /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		101A76BD1ECBB471009EBB9A /* String+IdentifiableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+IdentifiableType.swift"; sourceTree = "<group>"; };
+		101A76BE1ECBB471009EBB9A /* IntegerType+IdentifiableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IntegerType+IdentifiableType.swift"; sourceTree = "<group>"; };
+		101A76BF1ECBB471009EBB9A /* FloatingPointType+IdentifiableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FloatingPointType+IdentifiableType.swift"; sourceTree = "<group>"; };
+		101A76C11ECBB471009EBB9A /* RxCollectionViewSectionedAnimatedDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxCollectionViewSectionedAnimatedDataSource.swift; sourceTree = "<group>"; };
+		101A76C21ECBB471009EBB9A /* RxCollectionViewSectionedReloadDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxCollectionViewSectionedReloadDataSource.swift; sourceTree = "<group>"; };
+		101A76C31ECBB471009EBB9A /* RxTableViewSectionedAnimatedDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTableViewSectionedAnimatedDataSource.swift; sourceTree = "<group>"; };
+		101A76C41ECBB471009EBB9A /* RxTableViewSectionedReloadDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTableViewSectionedReloadDataSource.swift; sourceTree = "<group>"; };
+		101A76DE1ECBB47E009EBB9A /* Flickr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
 		1025615F1EC53DA9002239AC /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		104392C51EC507080050D633 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxDataSources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B6BDA91EC4103000B2233B /* FlickrDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrDatasource.swift; sourceTree = "<group>"; };
 		10B6BDAB1EC4130B00B2233B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		10B7E0A61EBF9C5F009314ED /* RxAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +192,6 @@
 		10E594371EC3EED10058C7D3 /* DataModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10E5943E1EC3EED10058C7D3 /* DataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelTests.swift; sourceTree = "<group>"; };
 		10E594401EC3EED10058C7D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10E5944C1EC3EEFE0058C7D3 /* Flickr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
 		10FAD50C1EBCCB9D0058C602 /* RXTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RXTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FAD50F1EBCCB9D0058C602 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FAD5111EBCCB9D0058C602 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -184,7 +227,6 @@
 				10636DB11EC5315400C4F7B0 /* RxAlamofire.framework in Frameworks */,
 				104392C61EC507080050D633 /* RxCocoa.framework in Frameworks */,
 				1016BA6B1EC5068300FCA0CC /* FlickrKitFramework.framework in Frameworks */,
-				10B0F3CD1EC51B580032779D /* RxDataSources.framework in Frameworks */,
 				1016BA6C1EC5068600FCA0CC /* Swiftz.framework in Frameworks */,
 				1016BA6D1EC5068C00FCA0CC /* RxSwift.framework in Frameworks */,
 			);
@@ -205,7 +247,6 @@
 				1016BA691EC5066A00FCA0CC /* FlickrKitFramework.framework in Frameworks */,
 				10E594441EC3EED10058C7D3 /* DataModel.framework in Frameworks */,
 				1016BA5A1EC5066A00FCA0CC /* Alamofire.framework in Frameworks */,
-				10B0F3CB1EC51B3F0032779D /* RxDataSources.framework in Frameworks */,
 				1016BA601EC5066A00FCA0CC /* RxCocoa.framework in Frameworks */,
 				1016BA661EC5066A00FCA0CC /* Swiftz.framework in Frameworks */,
 				10B7E0BB1EBF9C5F009314ED /* RxAlamofire.framework in Frameworks */,
@@ -232,13 +273,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		101A76C01ECBB471009EBB9A /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				101A76AC1ECBB471009EBB9A /* AnimatableSectionModel.swift */,
+				101A76AD1ECBB471009EBB9A /* AnimatableSectionModelType.swift */,
+				101A76AE1ECBB471009EBB9A /* AnimatableSectionModelType+ItemPath.swift */,
+				101A76AF1ECBB471009EBB9A /* AnimationConfiguration.swift */,
+				101A76B01ECBB471009EBB9A /* Changeset.swift */,
+				101A76B11ECBB471009EBB9A /* CollectionViewSectionedDataSource.swift */,
+				101A76B21ECBB471009EBB9A /* DataSources.swift */,
+				101A76B31ECBB471009EBB9A /* Differentiator.swift */,
+				101A76B41ECBB471009EBB9A /* IdentifiableType.swift */,
+				101A76B51ECBB471009EBB9A /* IdentifiableValue.swift */,
+				101A76B61ECBB471009EBB9A /* ItemPath.swift */,
+				101A76B71ECBB471009EBB9A /* Optional+Extensions.swift */,
+				101A76B81ECBB471009EBB9A /* SectionModel.swift */,
+				101A76B91ECBB471009EBB9A /* SectionModelType.swift */,
+				101A76BA1ECBB471009EBB9A /* TableViewSectionedDataSource.swift */,
+				101A76BB1ECBB471009EBB9A /* UI+SectionedViewType.swift */,
+				101A76BC1ECBB471009EBB9A /* Array+Extensions.swift */,
+				101A76BD1ECBB471009EBB9A /* String+IdentifiableType.swift */,
+				101A76BE1ECBB471009EBB9A /* IntegerType+IdentifiableType.swift */,
+				101A76BF1ECBB471009EBB9A /* FloatingPointType+IdentifiableType.swift */,
+			);
+			name = DataSources;
+			path = ../RxDataSources/Sources/DataSources;
+			sourceTree = "<group>";
+		};
+		101A76C51ECBB471009EBB9A /* DataSources+Rx */ = {
+			isa = PBXGroup;
+			children = (
+				101A76C11ECBB471009EBB9A /* RxCollectionViewSectionedAnimatedDataSource.swift */,
+				101A76C21ECBB471009EBB9A /* RxCollectionViewSectionedReloadDataSource.swift */,
+				101A76C31ECBB471009EBB9A /* RxTableViewSectionedAnimatedDataSource.swift */,
+				101A76C41ECBB471009EBB9A /* RxTableViewSectionedReloadDataSource.swift */,
+			);
+			name = "DataSources+Rx";
+			path = "../RxDataSources/Sources/DataSources+Rx";
+			sourceTree = "<group>";
+		};
+		101A76E11ECBB49A009EBB9A /* RxDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				101A76C01ECBB471009EBB9A /* DataSources */,
+				101A76C51ECBB471009EBB9A /* DataSources+Rx */,
+			);
+			name = RxDataSources;
+			sourceTree = "<group>";
+		};
 		10B7E0301EBF904C009314ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				10BBAFAA1ECA5546008495F9 /* RxBlocking.framework */,
 				10BBAFAB1ECA5546008495F9 /* RxCocoa.framework */,
 				10BBAFAC1ECA5546008495F9 /* RxSwift.framework */,
-				10B0F3CA1EC51B3F0032779D /* RxDataSources.framework */,
 				104392C51EC507080050D633 /* RxCocoa.framework */,
 				1016BA681EC5066A00FCA0CC /* FlickrKitFramework.framework */,
 				1016BA651EC5066A00FCA0CC /* Swiftz.framework */,
@@ -272,9 +361,10 @@
 		10E594301EC3EED10058C7D3 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				101A76DE1ECBB47E009EBB9A /* Flickr.swift */,
 				10E594311EC3EED10058C7D3 /* DataModel.h */,
 				10E594321EC3EED10058C7D3 /* Info.plist */,
-				10E5944C1EC3EEFE0058C7D3 /* Flickr.swift */,
+				101A76E11ECBB49A009EBB9A /* RxDataSources */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -613,7 +703,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10E5944D1EC3EEFE0058C7D3 /* Flickr.swift in Sources */,
+				101A76C81ECBB471009EBB9A /* AnimatableSectionModelType+ItemPath.swift in Sources */,
+				101A76D21ECBB471009EBB9A /* SectionModel.swift in Sources */,
+				101A76D11ECBB471009EBB9A /* Optional+Extensions.swift in Sources */,
+				101A76C71ECBB471009EBB9A /* AnimatableSectionModelType.swift in Sources */,
+				101A76CB1ECBB471009EBB9A /* CollectionViewSectionedDataSource.swift in Sources */,
+				101A76CF1ECBB471009EBB9A /* IdentifiableValue.swift in Sources */,
+				101A76D71ECBB471009EBB9A /* String+IdentifiableType.swift in Sources */,
+				101A76CE1ECBB471009EBB9A /* IdentifiableType.swift in Sources */,
+				101A76DC1ECBB471009EBB9A /* RxTableViewSectionedAnimatedDataSource.swift in Sources */,
+				101A76D91ECBB471009EBB9A /* FloatingPointType+IdentifiableType.swift in Sources */,
+				101A76D31ECBB471009EBB9A /* SectionModelType.swift in Sources */,
+				101A76D61ECBB471009EBB9A /* Array+Extensions.swift in Sources */,
+				101A76DF1ECBB47E009EBB9A /* Flickr.swift in Sources */,
+				101A76DB1ECBB471009EBB9A /* RxCollectionViewSectionedReloadDataSource.swift in Sources */,
+				101A76D41ECBB471009EBB9A /* TableViewSectionedDataSource.swift in Sources */,
+				101A76D51ECBB471009EBB9A /* UI+SectionedViewType.swift in Sources */,
+				101A76CA1ECBB471009EBB9A /* Changeset.swift in Sources */,
+				101A76CC1ECBB471009EBB9A /* DataSources.swift in Sources */,
+				101A76DA1ECBB471009EBB9A /* RxCollectionViewSectionedAnimatedDataSource.swift in Sources */,
+				101A76DD1ECBB471009EBB9A /* RxTableViewSectionedReloadDataSource.swift in Sources */,
+				101A76CD1ECBB471009EBB9A /* Differentiator.swift in Sources */,
+				101A76D01ECBB471009EBB9A /* ItemPath.swift in Sources */,
+				101A76C61ECBB471009EBB9A /* AnimatableSectionModel.swift in Sources */,
+				101A76C91ECBB471009EBB9A /* AnimationConfiguration.swift in Sources */,
+				101A76D81ECBB471009EBB9A /* IntegerType+IdentifiableType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +880,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RxDataSources/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = DataModel/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -789,6 +907,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RxDataSources/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = DataModel/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -928,6 +1050,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 79YC3H9WVP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/RxDataSources/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = RXTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Weaslefloss.RXTest;
@@ -942,6 +1069,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 79YC3H9WVP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/RxDataSources/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = RXTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Weaslefloss.RXTest;

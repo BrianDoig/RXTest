@@ -11,7 +11,6 @@ import DataModel
 import RxSwift
 import RxCocoa
 import Swiftz
-import RxDataSources
 
 private let reuseIdentifier = "FlickrCell"
 
@@ -26,7 +25,7 @@ extension UIScrollView {
 class FlickrCollectionViewController: UICollectionViewController {
 
 	/// This is the datasource for the collection view
-	let cvDataSource = RxCollectionViewSectionedAnimatedDataSource<SectionOfFlickrCellData>()
+	let cvDataSource = RxCollectionViewSectionedReloadDataSource<SectionOfFlickrCellData>()
 	
 	/// This is allows all the data streams to be deallocated when the view
 	/// controller is deallocated.

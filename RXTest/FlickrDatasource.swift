@@ -12,7 +12,6 @@ import DataModel
 import RxSwift
 import RxCocoa
 import Swiftz
-import RxDataSources
 
 struct FlickrCellData: IdentifiableType, Equatable {
 	typealias Identity = Int
@@ -26,6 +25,7 @@ struct FlickrCellData: IdentifiableType, Equatable {
 	static func ==(lhs: FlickrCellData, rhs: FlickrCellData) -> Bool {
 		return lhs.image.image == rhs.image.image
 			&& lhs.image.thumbnail.value.url == rhs.image.thumbnail.value.url
+			&& lhs.image.thumbnail.value.image == rhs.image.thumbnail.value.image
 	}
 }
 
@@ -41,6 +41,7 @@ struct SectionOfFlickrCellData: SectionModelType, IdentifiableType {
 			return result
 				^ cellData.image.image.hashValue
 				^ cellData.image.thumbnail.value.url.hashValue
+				^ (cellData.image.thumbnail.value.image?.hashValue ?? 0xF0F0F0F0F0F0F0)
 		})
 	}
 	
