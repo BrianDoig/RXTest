@@ -13,3 +13,6 @@
 [submodule "RxDataSources"]
 	path = RxDataSources
 	url = https://github.com/RxSwiftCommunity/RxDataSources.git
+[submodule "Gloss"]
+	path = Gloss
+	url = https://github.com/hkellaway/Gloss.git

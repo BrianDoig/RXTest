@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1006F9271ECCC7FB00E68B4F /* PixabayImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1006F9261ECCC7FB00E68B4F /* PixabayImage.swift */; };
+		1006F9291ECCCDA200E68B4F /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1006F9281ECCCDA200E68B4F /* Gloss.framework */; };
+		1006F92A1ECCCDCE00E68B4F /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1006F9281ECCCDA200E68B4F /* Gloss.framework */; };
+		1006F92B1ECCCDCE00E68B4F /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1006F9281ECCCDA200E68B4F /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1006F92D1ECCD0D400E68B4F /* PixabayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1006F92C1ECCD0D400E68B4F /* PixabayResponse.swift */; };
+		1006F92F1ECCD69C00E68B4F /* Pixabay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1006F92E1ECCD69C00E68B4F /* Pixabay.swift */; };
 		1016BA5A1EC5066A00FCA0CC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; };
 		1016BA5B1EC5066A00FCA0CC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1016BA601EC5066A00FCA0CC /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA5F1EC5066A00FCA0CC /* RxCocoa.framework */; };
@@ -130,6 +136,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1006F92B1ECCCDCE00E68B4F /* Gloss.framework in Embed Frameworks */,
 				1016BA6A1EC5066A00FCA0CC /* FlickrKitFramework.framework in Embed Frameworks */,
 				10E594451EC3EED10058C7D3 /* DataModel.framework in Embed Frameworks */,
 				1016BA5B1EC5066A00FCA0CC /* Alamofire.framework in Embed Frameworks */,
@@ -143,6 +150,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1006F9261ECCC7FB00E68B4F /* PixabayImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixabayImage.swift; sourceTree = "<group>"; };
+		1006F9281ECCCDA200E68B4F /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1006F92C1ECCD0D400E68B4F /* PixabayResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixabayResponse.swift; sourceTree = "<group>"; };
+		1006F92E1ECCD69C00E68B4F /* Pixabay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pixabay.swift; sourceTree = "<group>"; };
 		1016BA591EC5066A00FCA0CC /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1016BA5C1EC5066A00FCA0CC /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1016BA5F1EC5066A00FCA0CC /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +239,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1006F9291ECCCDA200E68B4F /* Gloss.framework in Frameworks */,
 				10636DB11EC5315400C4F7B0 /* RxAlamofire.framework in Frameworks */,
 				104392C61EC507080050D633 /* RxCocoa.framework in Frameworks */,
 				1016BA6B1EC5068300FCA0CC /* FlickrKitFramework.framework in Frameworks */,
@@ -248,6 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1006F92A1ECCCDCE00E68B4F /* Gloss.framework in Frameworks */,
 				1016BA691EC5066A00FCA0CC /* FlickrKitFramework.framework in Frameworks */,
 				10E594441EC3EED10058C7D3 /* DataModel.framework in Frameworks */,
 				1016BA5A1EC5066A00FCA0CC /* Alamofire.framework in Frameworks */,
@@ -277,6 +290,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1006F9241ECCC7C200E68B4F /* Pixabay */ = {
+			isa = PBXGroup;
+			children = (
+				1006F9261ECCC7FB00E68B4F /* PixabayImage.swift */,
+				1006F92C1ECCD0D400E68B4F /* PixabayResponse.swift */,
+				1006F92E1ECCD69C00E68B4F /* Pixabay.swift */,
+			);
+			name = Pixabay;
+			sourceTree = "<group>";
+		};
+		1006F9251ECCC7D200E68B4F /* Flickr */ = {
+			isa = PBXGroup;
+			children = (
+				101A76DE1ECBB47E009EBB9A /* Flickr.swift */,
+			);
+			name = Flickr;
+			sourceTree = "<group>";
+		};
 		101A76C01ECBB471009EBB9A /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +360,7 @@
 		10B7E0301EBF904C009314ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1006F9281ECCCDA200E68B4F /* Gloss.framework */,
 				10BBAFAA1ECA5546008495F9 /* RxBlocking.framework */,
 				10BBAFAB1ECA5546008495F9 /* RxCocoa.framework */,
 				10BBAFAC1ECA5546008495F9 /* RxSwift.framework */,
@@ -366,7 +398,8 @@
 			isa = PBXGroup;
 			children = (
 				107321A01ECCB2D000174CFE /* DataSource.swift */,
-				101A76DE1ECBB47E009EBB9A /* Flickr.swift */,
+				1006F9251ECCC7D200E68B4F /* Flickr */,
+				1006F9241ECCC7C200E68B4F /* Pixabay */,
 				10E594311EC3EED10058C7D3 /* DataModel.h */,
 				10E594321EC3EED10058C7D3 /* Info.plist */,
 				101A76E11ECBB49A009EBB9A /* RxDataSources */,
@@ -716,6 +749,7 @@
 				101A76CB1ECBB471009EBB9A /* CollectionViewSectionedDataSource.swift in Sources */,
 				101A76CF1ECBB471009EBB9A /* IdentifiableValue.swift in Sources */,
 				101A76D71ECBB471009EBB9A /* String+IdentifiableType.swift in Sources */,
+				1006F9271ECCC7FB00E68B4F /* PixabayImage.swift in Sources */,
 				101A76CE1ECBB471009EBB9A /* IdentifiableType.swift in Sources */,
 				101A76DC1ECBB471009EBB9A /* RxTableViewSectionedAnimatedDataSource.swift in Sources */,
 				101A76D91ECBB471009EBB9A /* FloatingPointType+IdentifiableType.swift in Sources */,
@@ -729,6 +763,8 @@
 				101A76CA1ECBB471009EBB9A /* Changeset.swift in Sources */,
 				101A76CC1ECBB471009EBB9A /* DataSources.swift in Sources */,
 				101A76DA1ECBB471009EBB9A /* RxCollectionViewSectionedAnimatedDataSource.swift in Sources */,
+				1006F92D1ECCD0D400E68B4F /* PixabayResponse.swift in Sources */,
+				1006F92F1ECCD69C00E68B4F /* Pixabay.swift in Sources */,
 				101A76DD1ECBB471009EBB9A /* RxTableViewSectionedReloadDataSource.swift in Sources */,
 				101A76CD1ECBB471009EBB9A /* Differentiator.swift in Sources */,
 				101A76D01ECBB471009EBB9A /* ItemPath.swift in Sources */,
@@ -891,6 +927,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RxDataSources/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Gloss/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = DataModel/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -918,6 +955,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RxDataSources/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Gloss/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = DataModel/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

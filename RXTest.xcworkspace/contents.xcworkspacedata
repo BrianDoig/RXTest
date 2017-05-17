@@ -16,4 +16,7 @@
    <FileRef
       location = "group:FlickrKit/FlickrKit.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Gloss/Gloss.xcodeproj">
+   </FileRef>
 </Workspace>

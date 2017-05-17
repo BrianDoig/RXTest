@@ -1,17 +1,17 @@
 //
-//  Flickr.swift
+//  Pixabay.swift
 //  RXTest
 //
-//  Created by Brian Doig on 5/10/17.
+//  Created by Brian Doig on 5/17/17.
 //  Copyright © 2017 Brian Doig. All rights reserved.
 //
 
 import Foundation
-import FlickrKitFramework
 import RxSwift
 import Swiftz
+import FlickrKitFramework
 
-public class FlickrDatasource: ImageDataSource {
+public class PixabayDatasource: ImageDataSource {
 	let queue = DispatchQueue(label: "FlickrDatasource.nextPage")
 	
 	var flickrInteresting = FKFlickrInterestingnessGetList()
@@ -29,6 +29,8 @@ public class FlickrDatasource: ImageDataSource {
 		}
 		set(value) {
 			_pageSize = value
+			
+			print(pageSize)
 			
 			// Have to reset to apply the new page size
 			reset()
@@ -88,11 +90,11 @@ public class FlickrDatasource: ImageDataSource {
 			if let strongSelf = self {
 				
 				strongSelf.queue.async {
-					// Prevent us from executing multiple fetches at once, 
+					// Prevent us from executing multiple fetches at once,
 					// or fetching if we got less than a full page of data back.
 					guard strongSelf.fetching.value == false
 						&& strongSelf.noMoreData == false else {
-						return
+							return
 					}
 					
 					// We are now fetching
@@ -122,6 +124,7 @@ public class FlickrDatasource: ImageDataSource {
 										if (result.count < strongSelf.pageSize) {
 											strongSelf.noMoreData = true
 										}
+										print("Fetched \(result.count) items")
 										
 										// Append the array of new items
 										strongSelf.data.value.append(contentsOf: result)

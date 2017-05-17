@@ -16,7 +16,7 @@ class PixabayCollectionViewController: BaseCollectionViewController {
 
 	override func viewDidLoad() {
 		// Set the datasource for this view
-		self.datasource = FlickrDatasource()
+		self.datasource = PixabayDatasource()
 		
 		// Set the reuse identifier before we set everything up.
 		self.reuseIdentifier = "PixabayCell"
