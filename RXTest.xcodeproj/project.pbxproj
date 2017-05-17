@@ -14,6 +14,8 @@
 		1006F92D1ECCD0D400E68B4F /* PixabayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1006F92C1ECCD0D400E68B4F /* PixabayResponse.swift */; };
 		1006F92F1ECCD69C00E68B4F /* Pixabay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1006F92E1ECCD69C00E68B4F /* Pixabay.swift */; };
 		1006F9311ECCEA2100E68B4F /* GetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1006F9301ECCEA2100E68B4F /* GetImage.swift */; };
+		1006F9341ECD024300E68B4F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BBAFAC1ECA5546008495F9 /* RxSwift.framework */; };
+		1006F9351ECD024300E68B4F /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10BBAFAC1ECA5546008495F9 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1016BA5A1EC5066A00FCA0CC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; };
 		1016BA5B1EC5066A00FCA0CC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1016BA601EC5066A00FCA0CC /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA5F1EC5066A00FCA0CC /* RxCocoa.framework */; };
@@ -141,6 +143,7 @@
 				1016BA6A1EC5066A00FCA0CC /* FlickrKitFramework.framework in Embed Frameworks */,
 				10E594451EC3EED10058C7D3 /* DataModel.framework in Embed Frameworks */,
 				1016BA5B1EC5066A00FCA0CC /* Alamofire.framework in Embed Frameworks */,
+				1006F9351ECD024300E68B4F /* RxSwift.framework in Embed Frameworks */,
 				1016BA611EC5066A00FCA0CC /* RxCocoa.framework in Embed Frameworks */,
 				1016BA671EC5066A00FCA0CC /* Swiftz.framework in Embed Frameworks */,
 				10B7E0BC1EBF9C5F009314ED /* RxAlamofire.framework in Embed Frameworks */,
@@ -199,7 +202,7 @@
 		10B7E0C51EBF9C86009314ED /* RxAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAlamofire.swift; sourceTree = "<group>"; };
 		10BBAFAA1ECA5546008495F9 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = "RxSwift/build/Debug-iphoneos/RxBlocking.framework"; sourceTree = "<group>"; };
 		10BBAFAB1ECA5546008495F9 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = "../../../Library/Developer/Xcode/DerivedData/RXTest-grwnfeilethurcaspznnozflfecz/Build/Products/Debug-iphonesimulator/RxCocoa.framework"; sourceTree = "<group>"; };
-		10BBAFAC1ECA5546008495F9 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "../../../Library/Developer/Xcode/DerivedData/RXTest-grwnfeilethurcaspznnozflfecz/Build/Products/Debug-iphonesimulator/RxSwift.framework"; sourceTree = "<group>"; };
+		10BBAFAC1ECA5546008495F9 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10E594241EC3EDB20058C7D3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		10E594261EC3EE1A0058C7D3 /* FlickrCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrCollectionViewController.swift; sourceTree = "<group>"; };
 		10E594281EC3EE430058C7D3 /* PixabayCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixabayCollectionViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +269,7 @@
 				1016BA691EC5066A00FCA0CC /* FlickrKitFramework.framework in Frameworks */,
 				10E594441EC3EED10058C7D3 /* DataModel.framework in Frameworks */,
 				1016BA5A1EC5066A00FCA0CC /* Alamofire.framework in Frameworks */,
+				1006F9341ECD024300E68B4F /* RxSwift.framework in Frameworks */,
 				1016BA601EC5066A00FCA0CC /* RxCocoa.framework in Frameworks */,
 				1016BA661EC5066A00FCA0CC /* Swiftz.framework in Frameworks */,
 				10B7E0BB1EBF9C5F009314ED /* RxAlamofire.framework in Frameworks */,
