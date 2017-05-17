@@ -33,7 +33,7 @@ public class ImageData<T, U> {
 	}
 }
 
-public class FlickrDatasource {
+public class FlickrDatasource: ImageDataSource {
 	let queue = DispatchQueue(label: "FlickrDatasource.nextPage")
 	
 	var flickrInteresting = FKFlickrInterestingnessGetList()
@@ -43,7 +43,7 @@ public class FlickrDatasource {
 	private var nextPage = 0
 	
 	private var _pageSize = 100
-	private var pageSize: Int {
+	public var pageSize: Int {
 		get {
 			return _pageSize
 		}

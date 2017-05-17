@@ -59,3 +59,12 @@ struct SectionOfFlickrCellData: SectionModelType, IdentifiableType {
 extension SectionOfFlickrCellData: AnimatableSectionModelType {
 	
 }
+
+extension UIScrollView {
+	/// This method determins if the scroll view is near the bottom edge using
+	/// the edgeOffset as the distance used to trigger scrolling.
+	func  isNearBottomEdge(edgeOffset: CGFloat = 20.0) -> Bool {
+		return self.contentOffset.y + self.frame.size.height + edgeOffset > self.contentSize.height
+	}
+}
+
