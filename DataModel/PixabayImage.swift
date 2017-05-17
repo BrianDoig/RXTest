@@ -50,12 +50,14 @@ public struct PixabayImage: Decodable {
 	}
 	
 	public init?(json: JSON) {
+		// Used to turn the comma seperated list of tags into an array of tags.
 		let splitCSV: (String) -> [String] = { csv in
 			csv.characters
 				.split { $0 == "," }
 				.map { String($0).trimmingCharacters(in: NSCharacterSet.whitespaces) }
 		}
-
+		
+		// The <~~ operator is from the Gloss JSON parsing library
 		if let id: UInt64 = "id" <~~ json,
 			let pageURL: String = "pageURL" <~~ json,
 			let pageImageWidth: Int = "imageWidth" <~~ json,
@@ -94,6 +96,11 @@ public struct PixabayImage: Decodable {
 	}
 	
 	public static func toImageData(_ image: PixabayImage) -> ImageData<AsyncImage, URL>? {
+		// The <^> operator is map and <*> operator is flatMap with the order switched
+		// makes it easier to read code in the order you think about rather than from
+		// reverse.  They are from the Swiftz libary which is for functional programming.
+		// You will find them in many swift libraries since they are standard operators in
+		// many languages.
 		return curry(ImageData<AsyncImage, URL>.init)
 			<^> URL(string: image.previewURL).flatMap(getImage)
 			<*> URL(string: image.imageURL)

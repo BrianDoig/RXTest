@@ -32,9 +32,6 @@ public struct Image {
 	}
 }
 
-/// This represents an image which may not have been fetched yet.
-public typealias AsyncImage = Variable<Image>
-
 /// This represents a pair of data representing the thumbnail and the full res image.
 /// This is a generic because it can be transformed several steps along the way.
 public class ImageData<Thumbnail, Image> {

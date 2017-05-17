@@ -15,9 +15,14 @@ class ImageViewController: UIViewController {
 	
 	@IBOutlet weak var imageView: UIImageView?
 	
+	/// Disposes Observables if the controller goes away.
 	let disposeBag = DisposeBag()
 	
+	/// The private backing variable for the image.
 	private var _image: AsyncImage? = nil
+	
+	/// Public interface to the image.  Has the side effect of binding the
+	/// image view to the AsyncImage
 	var image: AsyncImage? {
 		get {
 			// Return our value
@@ -31,7 +36,6 @@ class ImageViewController: UIViewController {
 			if let theImageView = imageView {
 				// Then bind it to the image view
 				_image?.asObservable()
-					.shareReplay(1)
 					.map({ $0.image })
 					.bind(to: theImageView.rx.image)
 					.disposed(by: disposeBag)

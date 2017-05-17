@@ -19,6 +19,7 @@ public struct PixabayResponse: Decodable {
 	}
 	
 	public init?(json: JSON) {
+		// <~~ operator from Gloss library
 		if let totalCount: Int64 = "totalHits" <~~ json,
 			let images: [PixabayImage] = "hits" <~~ json {
 			self.init(totalCount: totalCount, images: images)

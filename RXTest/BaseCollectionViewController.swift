@@ -17,7 +17,7 @@ class BaseCollectionViewController: UICollectionViewController {
 	var reuseIdentifier = ""
 	
 	/// This is the datasource for the collection view
-	let cvDataSource = RxCollectionViewSectionedReloadDataSource<SectionOfFlickrCellData>()
+	let cvDataSource = RxCollectionViewSectionedReloadDataSource<SectionOfImageCellData>()
 	
 	/// This is allows all the data streams to be deallocated when the view
 	/// controller is deallocated.
@@ -44,6 +44,10 @@ class BaseCollectionViewController: UICollectionViewController {
 			.disposed(by: disposeBag)
 	}
 	
+	/// Calculate the number of objects for a page based on how big the screen is.
+	/// This is needed since the page size must be big enough to cover the whole
+	/// screen when displayed in order to trigger the detection of reaching the
+	/// bottom of the scroll view since it's filtering out duplicate events.
 	private func calculatePageSize() {
 		// Get the size of the collection view
 		let size = self.collectionView?.bounds.size ?? CGSize(width: 2048, height: 1536)
@@ -131,9 +135,12 @@ class BaseCollectionViewController: UICollectionViewController {
 			cv.rx.contentOffset
 				.asDriver()
 				.map({ [weak self] (cv) -> Bool in
+					// Since the offest changed, ask the collection view if we are
+					// near the bottom of the edge.  It then returns true or false
+					// for the event.
 					return (self?.collectionView?.isNearBottomEdge(edgeOffset: 5.0)) ?? false
 				})
-				.distinctUntilChanged()
+				.distinctUntilChanged() // This filters out duplicate trues and duplicate falses to prevent a reload for each pixel the scroll view moves near the bottom.
 				.asObservable()
 				.observeOn(MainScheduler.instance)
 				.subscribe({ [weak self] in
@@ -173,9 +180,9 @@ class BaseCollectionViewController: UICollectionViewController {
 			// observe it on the main queue, and then bind the datasource
 			// to the collection view.
 			datasource.data.asObservable()
-				.map({ (images) -> [SectionOfFlickrCellData] in
+				.map({ (images) -> [SectionOfImageCellData] in
 					return [
-						SectionOfFlickrCellData(header: "", items: images.map(FlickrCellData.init))
+						SectionOfImageCellData(header: "", items: images.map(ImageCellData.init))
 					]
 				})
 				.observeOn(MainScheduler.instance)

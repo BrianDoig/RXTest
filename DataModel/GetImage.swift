@@ -7,17 +7,13 @@
 //
 
 import Foundation
+import RxSwift
+
+/// This represents an image which may not have been fetched yet.
+public typealias AsyncImage = Variable<Image>
 
 // Cache for images already loaded previously
 private let imageCache = NSCache<NSString, UIImage>()
-
-private struct OpQueue {
-	static let shared: OperationQueue = {
-		let oq = OperationQueue()
-//		oq.maxConcurrentOperationCount = 16
-		return oq
-	}()
-}
 
 // This function takes a url and returns an asyncronously loading image.
 public func getImage(url: URL) -> AsyncImage {
@@ -28,7 +24,7 @@ public func getImage(url: URL) -> AsyncImage {
 	} else {
 		result = AsyncImage(Image(nil, url))
 		
-		OpQueue.shared.addOperation({
+		DispatchQueue.global().async(group: nil, qos: .userInitiated, flags: .inheritQoS, execute: { 
 			// Try to get the data for the image and create an image from it
 			if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
 				imageCache.setObject(image,
