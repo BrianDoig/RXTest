@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public struct ResponseEntity: Decodable {
+public struct PixabayResponse: Decodable {
 	public let totalCount: Int64
 	public let images: [PixabayImage]
 	
@@ -19,8 +19,8 @@ public struct ResponseEntity: Decodable {
 	}
 	
 	public init?(json: JSON) {
-		if let totalCount: Int64 = "" <~~ json,
-			let images: [PixabayImage] = "" <~~ json {
+		if let totalCount: Int64 = "totalHits" <~~ json,
+			let images: [PixabayImage] = "hits" <~~ json {
 			self.init(totalCount: totalCount, images: images)
 		} else {
 			return nil

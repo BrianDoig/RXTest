@@ -54,9 +54,6 @@ class BaseCollectionViewController: UICollectionViewController {
 		// Figure out how many items per page we need 
 		let pageSize = Int((size.width * size.height) / (cellSize.width * cellSize.height))
 		
-		// Debug
-		print(pageSize)
-		
 		// Set the size into the datasource.
 		self.datasource.pageSize = pageSize
 	}

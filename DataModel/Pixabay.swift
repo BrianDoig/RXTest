@@ -9,14 +9,22 @@
 import Foundation
 import RxSwift
 import Swiftz
-import FlickrKitFramework
+import Alamofire
+import RxAlamofire
+import Gloss
+
+enum DataErrors: Error {
+	case jsonError(data: Any)
+}
 
 public class PixabayDatasource: ImageDataSource {
+	let disposeBag = DisposeBag()
+	
 	let queue = DispatchQueue(label: "FlickrDatasource.nextPage")
 	
-	var flickrInteresting = FKFlickrInterestingnessGetList()
-	
 	public let data = Variable<[ImageData<AsyncImage, URL>]>([])
+	
+	private var totalElements = 0
 	
 	private var nextPage = 0
 	
@@ -30,7 +38,7 @@ public class PixabayDatasource: ImageDataSource {
 		set(value) {
 			_pageSize = value
 			
-			print(pageSize)
+			//print("pageSize = \(value)")
 			
 			// Have to reset to apply the new page size
 			reset()
@@ -42,46 +50,44 @@ public class PixabayDatasource: ImageDataSource {
 		return fetching.asObservable()
 	}
 	
-	public var itemsPerPage: Int {
-		get {
-			return Int(flickrInteresting.per_page ?? "") ?? 0
-		}
-		set(value) {
-			// Page size less than 1 makes no sense
-			precondition(value > 0)
-			
-			// Store the value into the get list
-			flickrInteresting.per_page = "\(value)"
-		}
-	}
-	
 	public init() {
 		reset()
 	}
 	
 	private func changePage(to: Int) {
 		self.nextPage = to
-		
-		flickrInteresting.page = "\(self.nextPage)"
+		//print("Changing page to \(to)")
 	}
 	
 	public func reset() {
 		queue.sync {
+			totalElements = 0
+			
+			
 			// We are not out of data anymore
 			noMoreData = false
 			
 			// Reset our data to empty
 			data.value = []
 			
-			// Create a new get list iterator
-			flickrInteresting = FKFlickrInterestingnessGetList()
-			
-			// Set the page size
-			flickrInteresting.per_page = "\(pageSize)"
-			
 			// Set the current page to the first
 			self.changePage(to: 1)
 		}
+	}
+	
+	private func buildURL(page: Int, per_page: Int) -> String {
+		return "https://pixabay.com/api/?key=5392719-b80f839b53a1d197e04aa1c95&image_type=photo&page=\(page)&per_page=\(per_page)"
+	}
+	
+	private func networkCall() -> Observable<PixabayResponse> {
+		return requestJSON(.get, buildURL(page: self.nextPage, per_page: self.pageSize))
+			.map({ (response, json) -> PixabayResponse in
+				if let pixabayResponse = PixabayResponse(json: json as? JSON ?? [:]) {
+					return pixabayResponse
+				} else {
+					throw DataErrors.jsonError(data: json)
+				}
+			})
 	}
 	
 	public func next() -> Observable<Void> {
@@ -101,48 +107,34 @@ public class PixabayDatasource: ImageDataSource {
 					strongSelf.fetching.value = true
 					
 					// Perform the async request
-					FlickrKit.shared().call(strongSelf.flickrInteresting) { (response, error) -> Void in
-						
-						// Move back on to our own serial queue to manage state properly
-						strongSelf.queue.async(execute: { () -> Void in
-							
-							// Unwrap the response optional
-							if let response = response {
+					strongSelf.networkCall().subscribe({ (event) -> Void in
+						strongSelf.queue.async(execute: {
+							if let response = event.element {
+								strongSelf.totalElements = Int(response.totalCount)
 								
-								// Pull out the photo urls from the results
-								if let topPhotos = response["photos"] as? [AnyHashable: Any] {
-									
-									if let photoArray = topPhotos["photo" as NSObject] as? [[AnyHashable: Any]] {
-										
-										let result = photoArray.map { photoDictionary -> ImageData<AsyncImage, URL> in
-											let thumbnailURL = FlickrKit.shared().photoURL(for: .small240, fromPhotoDictionary: photoDictionary)
-											let photoURL = FlickrKit.shared().photoURL(for: FKPhotoSize.large1024, fromPhotoDictionary: photoDictionary)
-											let data = ImageData(thumbnail: getImage(url: thumbnailURL), image: photoURL)
-											return data
-										}
-										
-										if (result.count < strongSelf.pageSize) {
-											strongSelf.noMoreData = true
-										}
-										print("Fetched \(result.count) items")
-										
-										// Append the array of new items
-										strongSelf.data.value.append(contentsOf: result)
-									}
+								let data = response.images.flatMap(PixabayImage.toImageData)
+								
+								//print("Fetched \(data.count) records")
+								
+								strongSelf.data.value.append(contentsOf: data)
+								
+								//print("Total \(strongSelf.data.value.count) records")
+								
+								if strongSelf.data.value.count >= strongSelf.totalElements {
+									strongSelf.noMoreData = true
+									//print("noMoreData = true: \(strongSelf.data.value.count) >= \(strongSelf.totalElements)")
 								}
 								
+								strongSelf.changePage(to: strongSelf.nextPage + 1)
+								
+								strongSelf.fetching.value = false
+								
+								observer.on(.completed)
 							}
 							
-							// Increment the page number
-							strongSelf.changePage(to: strongSelf.nextPage + 1)
-							
-							// We are no longer fetching
-							strongSelf.fetching.value = false
-							
-							// Tell our observer we are done
-							observer.on(.completed)
 						})
-					}
+						
+					}).disposed(by: strongSelf.disposeBag)
 				}
 			}
 			

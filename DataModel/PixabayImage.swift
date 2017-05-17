@@ -8,6 +8,7 @@
 
 import Foundation
 import Gloss
+import Swiftz
 
 public struct PixabayImage: Decodable {
 	public let id: UInt64
@@ -91,5 +92,12 @@ public struct PixabayImage: Decodable {
 			return nil
 		}
 	}
+	
+	public static func toImageData(_ image: PixabayImage) -> ImageData<AsyncImage, URL>? {
+		return curry(ImageData<AsyncImage, URL>.init)
+			<^> URL(string: image.previewURL).flatMap(getImage)
+			<*> URL(string: image.imageURL)
+	}
+	
 }
 

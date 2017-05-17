@@ -105,29 +105,23 @@ public class FlickrDatasource: ImageDataSource {
 						strongSelf.queue.async(execute: { () -> Void in
 							
 							// Unwrap the response optional
-							if let response = response {
+							if let response = response,
+								let topPhotos = response["photos"] as? [AnyHashable: Any],
+								let photoArray = topPhotos["photo" as NSObject] as? [[AnyHashable: Any]] {
 								
-								// Pull out the photo urls from the results
-								if let topPhotos = response["photos"] as? [AnyHashable: Any] {
-									
-									if let photoArray = topPhotos["photo" as NSObject] as? [[AnyHashable: Any]] {
-										
-										let result = photoArray.map { photoDictionary -> ImageData<AsyncImage, URL> in
-											let thumbnailURL = FlickrKit.shared().photoURL(for: .small240, fromPhotoDictionary: photoDictionary)
-											let photoURL = FlickrKit.shared().photoURL(for: FKPhotoSize.large1024, fromPhotoDictionary: photoDictionary)
-											let data = ImageData(thumbnail: getImage(url: thumbnailURL), image: photoURL)
-											return data
-										}
-										
-										if (result.count < strongSelf.pageSize) {
-											strongSelf.noMoreData = true
-										}
-										
-										// Append the array of new items
-										strongSelf.data.value.append(contentsOf: result)
-									}
+								let result = photoArray.map { photoDictionary -> ImageData<AsyncImage, URL> in
+									let thumbnailURL = FlickrKit.shared().photoURL(for: .small240, fromPhotoDictionary: photoDictionary)
+									let photoURL = FlickrKit.shared().photoURL(for: FKPhotoSize.large1024, fromPhotoDictionary: photoDictionary)
+									let data = ImageData(thumbnail: getImage(url: thumbnailURL), image: photoURL)
+									return data
 								}
 								
+								if (result.count < strongSelf.pageSize) {
+									strongSelf.noMoreData = true
+								}
+								
+								// Append the array of new items
+								strongSelf.data.value.append(contentsOf: result)
 							}
 							
 							// Increment the page number

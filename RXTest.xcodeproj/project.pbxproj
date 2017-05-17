@@ -13,6 +13,7 @@
 		1006F92B1ECCCDCE00E68B4F /* Gloss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1006F9281ECCCDA200E68B4F /* Gloss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1006F92D1ECCD0D400E68B4F /* PixabayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1006F92C1ECCD0D400E68B4F /* PixabayResponse.swift */; };
 		1006F92F1ECCD69C00E68B4F /* Pixabay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1006F92E1ECCD69C00E68B4F /* Pixabay.swift */; };
+		1006F9311ECCEA2100E68B4F /* GetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1006F9301ECCEA2100E68B4F /* GetImage.swift */; };
 		1016BA5A1EC5066A00FCA0CC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; };
 		1016BA5B1EC5066A00FCA0CC /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA591EC5066A00FCA0CC /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1016BA601EC5066A00FCA0CC /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1016BA5F1EC5066A00FCA0CC /* RxCocoa.framework */; };
@@ -154,6 +155,7 @@
 		1006F9281ECCCDA200E68B4F /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1006F92C1ECCD0D400E68B4F /* PixabayResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixabayResponse.swift; sourceTree = "<group>"; };
 		1006F92E1ECCD69C00E68B4F /* Pixabay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pixabay.swift; sourceTree = "<group>"; };
+		1006F9301ECCEA2100E68B4F /* GetImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetImage.swift; sourceTree = "<group>"; };
 		1016BA591EC5066A00FCA0CC /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1016BA5C1EC5066A00FCA0CC /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1016BA5F1EC5066A00FCA0CC /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -398,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				107321A01ECCB2D000174CFE /* DataSource.swift */,
+				1006F9301ECCEA2100E68B4F /* GetImage.swift */,
 				1006F9251ECCC7D200E68B4F /* Flickr */,
 				1006F9241ECCC7C200E68B4F /* Pixabay */,
 				10E594311EC3EED10058C7D3 /* DataModel.h */,
@@ -768,6 +771,7 @@
 				101A76DD1ECBB471009EBB9A /* RxTableViewSectionedReloadDataSource.swift in Sources */,
 				101A76CD1ECBB471009EBB9A /* Differentiator.swift in Sources */,
 				101A76D01ECBB471009EBB9A /* ItemPath.swift in Sources */,
+				1006F9311ECCEA2100E68B4F /* GetImage.swift in Sources */,
 				101A76C61ECBB471009EBB9A /* AnimatableSectionModel.swift in Sources */,
 				101A76C91ECBB471009EBB9A /* AnimationConfiguration.swift in Sources */,
 				101A76D81ECBB471009EBB9A /* IntegerType+IdentifiableType.swift in Sources */,
