@@ -42,13 +42,17 @@ public class FlickrDatasource: ImageDataSource {
 	
 	private var nextPage = 0
 	
-	private var _pageSize = 100
+	private var noMoreData = false
+	
+	private var _pageSize = 15
 	public var pageSize: Int {
 		get {
 			return _pageSize
 		}
 		set(value) {
 			_pageSize = value
+			
+			print(pageSize)
 			
 			// Have to reset to apply the new page size
 			reset()
@@ -76,7 +80,7 @@ public class FlickrDatasource: ImageDataSource {
 	public init() {
 		reset()
 		// We don't care about the event finishing here, so dispose of it
-		next().subscribe({ _ in }).dispose()
+//		next().subscribe({ _ in }).dispose()
 	}
 	
 	private func changePage(to: Int) {
@@ -87,6 +91,9 @@ public class FlickrDatasource: ImageDataSource {
 	
 	public func reset() {
 		queue.sync {
+			// We are not out of data anymore
+			noMoreData = false
+			
 			// Reset our data to empty
 			data.value = []
 			
@@ -107,13 +114,18 @@ public class FlickrDatasource: ImageDataSource {
 			if let strongSelf = self {
 				
 				strongSelf.queue.async {
-					// Prevent us from executing multiple fetches at once
-					guard strongSelf.fetching.value == false else {
+					// Prevent us from executing multiple fetches at once, 
+					// or fetching if we got less than a full page of data back.
+					guard strongSelf.fetching.value == false
+						&& strongSelf.noMoreData == false else {
 						return
 					}
 					
 					// We are now fetching
 					strongSelf.fetching.value = true
+					
+					print("per_page", strongSelf.flickrInteresting.per_page)
+					print("page", strongSelf.flickrInteresting.page)
 					
 					// Perform the async request
 					FlickrKit.shared().call(strongSelf.flickrInteresting) { (response, error) -> Void in
@@ -135,6 +147,11 @@ public class FlickrDatasource: ImageDataSource {
 											let data = ImageData(thumbnail: getImage(url: thumbnailURL), image: photoURL)
 											return data
 										}
+										
+										if (result.count < strongSelf.pageSize) {
+											strongSelf.noMoreData = true
+										}
+										print("Fetched \(result.count) items")
 										
 										// Append the array of new items
 										strongSelf.data.value.append(contentsOf: result)

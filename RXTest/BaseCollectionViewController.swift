@@ -44,8 +44,28 @@ class BaseCollectionViewController: UICollectionViewController {
 			.disposed(by: disposeBag)
 	}
 	
+	private func calculatePageSize() {
+		// Get the size of the collection view
+		let size = self.collectionView?.bounds.size ?? CGSize(width: 2048, height: 1536)
+		
+		// Our cells are 104x104 with padding but this gives slightly more than we need to fill screen
+		let cellSize = CGSize(width: 100, height: 100)
+		
+		// Figure out how many items per page we need 
+		let pageSize = Int((size.width * size.height) / (cellSize.width * cellSize.height))
+		
+		// Debug
+		print(pageSize)
+		
+		// Set the size into the datasource.
+		self.datasource.pageSize = pageSize
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		// Determine the number of cells per page needed
+		calculatePageSize()
 		
 		// Set up the refresh control
 		collectionView?.refreshControl = refreshControl
@@ -114,7 +134,7 @@ class BaseCollectionViewController: UICollectionViewController {
 			cv.rx.contentOffset
 				.asDriver()
 				.map({ [weak self] (cv) -> Bool in
-					return (self?.collectionView?.isNearBottomEdge(edgeOffset: 150.0)) ?? false
+					return (self?.collectionView?.isNearBottomEdge(edgeOffset: 5.0)) ?? false
 				})
 				.distinctUntilChanged()
 				.asObservable()
