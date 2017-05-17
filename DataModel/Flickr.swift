@@ -42,7 +42,7 @@ public class FlickrDatasource {
 	
 	private var nextPage = 0
 	
-	private var _pageSize = 15
+	private var _pageSize = 25
 	private var pageSize: Int {
 		get {
 			return _pageSize
@@ -178,9 +178,9 @@ public func getImage(url: URL) -> AsyncImage {
 		DispatchQueue.global().async {
 			// Try to get the data for the image and create an image from it
 			if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-//				imageCache.setObject(image,
-//				                     forKey: url.absoluteString as NSString,
-//				                     cost: Int(image.size.height * image.size.width))
+				imageCache.setObject(image,
+				                     forKey: url.absoluteString as NSString,
+				                     cost: Int(image.size.height * image.size.width))
 				
 				// Set the image as the next in the stream
 				result.value = Image(image, url)

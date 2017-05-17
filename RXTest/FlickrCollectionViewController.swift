@@ -112,41 +112,37 @@ class FlickrCollectionViewController: UICollectionViewController {
 		// closures without needing to refer to self.
 		let disposeBag = self.disposeBag
 		
-		// Create the end of page trigger.  It looks if the collection view is
-		// within 20 points of the end of the view and if so it tries to load the
-		// next page.
-		let loadNextPageTrigger = self.collectionView?.rx.contentOffset.asDriver()
-			.flatMap { [weak self] _ in
-				return ((self?.collectionView?.isNearBottomEdge(edgeOffset: 150.0)) ?? false)
-					? Driver.just(())
-					: Driver.empty()
-			} ?? Driver.empty()
-		
-		// When loading the next page triggers only accept one trigger within
-		// a period of time to eliminate all the scroll viwe bounce extra triggers.
-		loadNextPageTrigger.asObservable()
-			.debounce(1.0, scheduler: MainScheduler.instance)
-			.observeOn(MainScheduler.instance)
-			.subscribe({ [weak self] in
-				// This needs to be here so that the paramater passed in gets
-				// accessed.  If it's not accessed, then it won't trigger the
-				// next page load.
-				_ = $0
-				
-				// Start the network activity indicator since we are loading
-				UIApplication.shared.isNetworkActivityIndicatorVisible = true
-				
-				// Now we need to tell the datasource to load the next page
-				// and end refreshing when it's done.
-				self?.datasource.next()
-					.subscribe({ _ in
-						// We are done so turn off the network indicator
-						UIApplication.shared.isNetworkActivityIndicatorVisible = false
-					})
-					.disposed(by: disposeBag)
-			})
-			.disposed(by: disposeBag)
-
+		if let cv = self.collectionView {
+			
+			// Create the end of page trigger.  It looks if the collection view is
+			// within 20 points of the end of the view and if so it tries to load the
+			// next page.
+			cv.rx.contentOffset
+				.asDriver()
+				.map({ [weak self] (cv) -> Bool in
+					return (self?.collectionView?.isNearBottomEdge(edgeOffset: 150.0)) ?? false
+				})
+				.distinctUntilChanged()
+				.asObservable()
+				.observeOn(MainScheduler.instance)
+				.subscribe({ [weak self] in
+					// Only load the next page when we recieve true.
+					if $0.element == true {
+						// Start the network activity indicator since we are loading
+						UIApplication.shared.isNetworkActivityIndicatorVisible = true
+						
+						// Now we need to tell the datasource to load the next page
+						// and end refreshing when it's done.
+						self?.datasource.next()
+							.subscribe({ _ in
+								// We are done so turn off the network indicator
+								UIApplication.shared.isNetworkActivityIndicatorVisible = false
+							})
+							.disposed(by: disposeBag)
+					}
+				})
+				.disposed(by: disposeBag)
+		}
 	}
 	
 	/// This method handles setting the image to be displayed into the segue
