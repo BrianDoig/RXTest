@@ -42,7 +42,7 @@ public class FlickrDatasource {
 	
 	private var nextPage = 0
 	
-	private var _pageSize = 25
+	private var _pageSize = 100
 	private var pageSize: Int {
 		get {
 			return _pageSize
