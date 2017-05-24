@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ImageCollectionViewCell: UICollectionViewCell {
     
 	@IBOutlet weak var imageView: UIImageView?
 	
 	override func prepareForReuse() {
-		self.imageView?.image = nil 
+		if let image = self.imageView?.rx.image {
+			Variable<UIImage?>(nil).asObservable().bind(to: image).dispose()
+		}
 	}
 }

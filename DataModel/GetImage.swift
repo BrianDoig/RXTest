@@ -9,9 +9,6 @@
 import Foundation
 import RxSwift
 
-/// This represents an image which may not have been fetched yet.
-public typealias AsyncImage = Variable<Image>
-
 // Cache for images already loaded previously
 private let imageCache = NSCache<NSString, UIImage>()
 

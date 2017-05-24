@@ -10,17 +10,6 @@ import Foundation
 import UIKit
 import RxSwift
 
-/// Image datasource protocol that is used to allow the view controllers to
-/// share a common interface.
-public protocol ImageDataSource {
-	var data: Variable<[ImageData<AsyncImage, URL>]> { get }
-	var pageSize: Int { get set }
-	var isFetching: Observable<Bool> { get }
-	
-	func reset()
-	func next() -> Observable<Void>
-}
-
 /// This represents an image and it's URL that it came from
 public struct Image {
 	public let image: UIImage?
@@ -32,6 +21,9 @@ public struct Image {
 	}
 }
 
+/// This represents an image which may not have been fetched yet.
+public typealias AsyncImage = Variable<Image>
+
 /// This represents a pair of data representing the thumbnail and the full res image.
 /// This is a generic because it can be transformed several steps along the way.
 public class ImageData<Thumbnail, Image> {
@@ -42,5 +34,16 @@ public class ImageData<Thumbnail, Image> {
 		self.thumbnail = thumbnail
 		self.image = image
 	}
+}
+
+/// Image datasource protocol that is used to allow the view controllers to
+/// share a common interface.
+public protocol ImageDataSource {
+	var data: Variable<[ImageData<AsyncImage, URL>]> { get }
+	var pageSize: Int { get set }
+	var isFetching: Observable<Bool> { get }
+	
+	func reset()
+	func next() -> Observable<Void>
 }
 

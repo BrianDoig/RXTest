@@ -96,14 +96,65 @@ public struct PixabayImage: Decodable {
 	}
 	
 	public static func toImageData(_ image: PixabayImage) -> ImageData<AsyncImage, URL>? {
-		// The <^> operator is map and <*> operator is flatMap with the order switched
-		// makes it easier to read code in the order you think about rather than from
-		// reverse.  They are from the Swiftz libary which is for functional programming.
-		// You will find them in many swift libraries since they are standard operators in
-		// many languages.
-		return curry(ImageData<AsyncImage, URL>.init)
-			<^> URL(string: image.previewURL).flatMap(getImage)
-			<*> URL(string: image.imageURL)
+		/*
+		Curry takes a function with the method signature 
+		
+		(A, B) -> C
+		
+		and changes it to the signature
+		
+		(A) -> (B) -> C
+		
+		This is known as the curried form which was invented by Haskell Curry.
+		
+		The expression "a <^> b" is equivalent to "b.map(a)".
+		The expression "a <*> b" is equivalent to "b.flatMap(a)".
+		
+		Having the orders paramater order switched for the operators, combined
+		with the curried form allow you write an expression that is similar to
+		calling the original function with optional paramaters passed in when
+		the function does not accept optional paramaters.  If any value is nil
+		then the whole result is nil. Thus the two code snippets are equivalent
+		
+		let a: A? = A()
+		let b: B? = B()
+		let c: C? = C()
+		
+		let result: D? 
+		if let aa = a, bb = b, cc = c {
+			result = f(aa, bb, cc) 
+		} else { 
+			result = nil 
+		}
+		
+		can be written as 
+		
+		let result = curry(f) <^> a <*> b <*> c
+		
+		which looks much closer to f(a,b,c) than the if let method.
+		
+		They curry function, <^> and <*> are from the Swiftz libary which is 
+		for functional programming.  You will find them in many open source
+		swift libraries since they are standard operators in many languages.
+		
+		Thus since initing URL with a string returns an URL? and you must have
+		both images the expression returns nil if either image fails to be
+		created.
+		
+		So the one line of code below replaces the following 7 lines of code
+		let result: ImageData<AsyncImage, URL>?
+		if let previewURL = URL(string: image.previewURL),
+			let asyncPreviewImage = getImage(asyncURL),
+			let imageURL = URL(string: image.imageURL) {
+			result = ImageData<AsyncImage, URL>(thumbnail: asyncPreviewImage, image: imageURL)
+		} else {
+			result = nil 
+		}
+		return result
+		*/
+		return curry(ImageData<AsyncImage, URL>.init)				// Curried form
+			<^> URL(string: image.previewURL).flatMap(getImage)		// Passing in first paramater as an optional
+			<*> URL(string: image.imageURL)							// Passing in second paramater as an optional
 	}
 	
 }
