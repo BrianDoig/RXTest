@@ -11,7 +11,6 @@ import RxSwift
 import Swiftz
 import Alamofire
 import RxAlamofire
-import Gloss
 
 enum DataErrors: Error {
 	case jsonError(data: Any)
