@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Gloss
 import Swiftz
 
 public struct PixabayImage: Decodable {
@@ -31,6 +30,27 @@ public struct PixabayImage: Decodable {
 	public let tags: [String]
 	public let username: String
 	
+	enum JSONCodingKeys: String, CodingKey {
+		case id
+		case pageURL
+		case pageImageWidth = "imageWidth"
+		case pageImageHeight = "imageHeight"
+		
+		case previewURL
+		case previewWidth
+		case previewHeight
+		
+		case imageURL = "webformatURL"
+		case imageWidth = "webformatWidth"
+		case imageHeight = "webformatHeight"
+		
+		case viewCount = "views"
+		case downloadCount = "downloads"
+		case likeCount = "likes"
+		case tags
+		case username = "user"
+	}
+	
 	public init(id: UInt64, pageURL: String, pageImageWidth: Int, pageImageHeight: Int, previewURL: String, previewWidth: Int, previewHeight: Int, imageURL: String, imageWidth: Int, imageHeight: Int, viewCount: Int64, downloadCount: Int64, likeCount: Int64, tags: [String], username: String) {
 		self.id = id
 		self.pageURL = pageURL
@@ -49,7 +69,7 @@ public struct PixabayImage: Decodable {
 		self.username = username
 	}
 	
-	public init?(json: JSON) {
+	public init(from decoder: Decoder) throws {
 		// Used to turn the comma seperated list of tags into an array of tags.
 		let splitCSV: (String) -> [String] = { csv in
 			csv.characters
@@ -58,41 +78,25 @@ public struct PixabayImage: Decodable {
 		}
 		
 		// The <~~ operator is from the Gloss JSON parsing library
-		if let id: UInt64 = "id" <~~ json,
-			let pageURL: String = "pageURL" <~~ json,
-			let pageImageWidth: Int = "imageWidth" <~~ json,
-			let pageImageHeight: Int = "imageHeight" <~~ json,
-			
-			let previewURL: String = "previewURL" <~~ json,
-			let previewWidth: Int = "previewWidth" <~~ json,
-			let previewHeight: Int = "previewHeight" <~~ json,
-			
-			let imageURL: String = "webformatURL" <~~ json,
-			let imageWidth: Int = "webformatWidth" <~~ json,
-			let imageHeight: Int = "webformatHeight" <~~ json,
-			
-			let viewCount: Int64 = "views" <~~ json,
-			let downloadCount: Int64 = "downloads" <~~ json,
-			let likeCount: Int64 = "likes" <~~ json,
-			let username: String  = "user" <~~ json {
-			self.init(id: id,
-			          pageURL: pageURL,
-			          pageImageWidth: pageImageWidth,
-			          pageImageHeight: pageImageHeight,
-			          previewURL: previewURL,
-			          previewWidth: previewWidth,
-			          previewHeight: previewHeight,
-			          imageURL: imageURL,
-			          imageWidth: imageWidth,
-			          imageHeight: imageHeight,
-			          viewCount: viewCount,
-			          downloadCount: downloadCount,
-			          likeCount: likeCount,
-			          tags: ("tags" <~~ json).map(splitCSV) ?? [],
-			          username: username)
-		} else {
-			return nil
-		}
+		let container = try decoder.container(keyedBy: JSONCodingKeys.self)
+		
+		self.init(id: try container.decode(UInt64.self, forKey: .id),
+		          pageURL: try container.decode(String.self, forKey: .pageURL),
+		          pageImageWidth: try container.decode(Int.self, forKey: .pageImageWidth),
+		          pageImageHeight: try container.decode(Int.self, forKey: .pageImageHeight),
+		          previewURL: try container.decode(String.self, forKey: .previewURL),
+		          previewWidth: try container.decode(Int.self, forKey: .previewWidth),
+		          previewHeight: try container.decode(Int.self, forKey: .previewHeight),
+		          imageURL: try container.decode(String.self, forKey: .imageURL),
+		          imageWidth: try container.decode(Int.self, forKey: .imageWidth),
+		          imageHeight: try container.decode(Int.self, forKey: .imageHeight),
+		          viewCount: try container.decode(Int64.self, forKey: .viewCount),
+		          downloadCount: try container.decode(Int64.self, forKey: .downloadCount),
+		          likeCount: try container.decode(Int64.self, forKey: .likeCount),
+		          tags: splitCSV(try container.decode(String.self, forKey: .tags)),
+		          username: try container.decode(String.self, forKey: .username))
+		
+		
 	}
 	
 	public static func toImageData(_ image: PixabayImage) -> ImageData<AsyncImage, URL>? {

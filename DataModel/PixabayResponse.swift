@@ -7,27 +7,28 @@
 //
 
 import Foundation
-import Gloss
 
 public struct PixabayResponse: Decodable {
 	public let totalCount: Int64
 	public let images: [PixabayImage]
+	
+	enum JSONCodingKeys: String, CodingKey {
+		case totalCount	= "totalHits"
+		case images		= "hits"
+	}
 	
 	public init(totalCount: Int64, images: [PixabayImage]) {
 		self.totalCount = totalCount
 		self.images = images
 	}
 	
-	public init?(json: JSON) {
-		// <~~ operator from Gloss library
-		if let totalCount: Int64 = "totalHits" <~~ json,
-			let images: [PixabayImage] = "hits" <~~ json {
-			self.init(totalCount: totalCount, images: images)
-		} else {
-			return nil
-		}
+	public init(from decoder: Decoder) throws {
+		// The <~~ operator is from the Gloss JSON parsing library
+		let container = try decoder.container(keyedBy: JSONCodingKeys.self)
+		
+		self.init(totalCount: try container.decode(Int64.self, forKey: .totalCount),
+		          images: try container.decode([PixabayImage].self, forKey: .images))
 		
 	}
-	
 }
 

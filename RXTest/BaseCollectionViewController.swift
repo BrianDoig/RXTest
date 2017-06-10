@@ -152,6 +152,7 @@ class BaseCollectionViewController: UICollectionViewController {
 						// Now we need to tell the datasource to load the next page
 						// and end refreshing when it's done.
 						self?.datasource.next()
+							.observeOn(MainScheduler.instance)
 							.subscribe({ _ in
 								// We are done so turn off the network indicator
 								UIApplication.shared.isNetworkActivityIndicatorVisible = false
