@@ -97,7 +97,8 @@ public class PixabayDatasource: ImageDataSource {
 	/// This function also handles mapping the the JSON to a model object.
 	private func networkCall() -> Observable<PixabayResponse> {
 		return requestData(.get, buildURL(page: self.nextPage, per_page: self.pageSize))
-			.map({ (response, json) -> PixabayResponse in
+			.map({ (arg) -> PixabayResponse in
+				let (_, json) = arg
 				if let pixabayResponse = try? JSONDecoder().decode(PixabayResponse.self, from: json) {
 					return pixabayResponse
 				} else {
