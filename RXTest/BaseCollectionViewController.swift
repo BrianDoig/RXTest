@@ -11,6 +11,7 @@ import DataModel
 import RxSwift
 import RxCocoa
 import Swiftz
+import RxData
 
 class BaseCollectionViewController: UICollectionViewController {
 	/// Collection view cell reuse identifier

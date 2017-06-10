@@ -12,6 +12,7 @@ import DataModel
 import RxSwift
 import RxCocoa
 import Swiftz
+import RxData
 
 struct ImageCellData {
 	let image: ImageData<AsyncImage, URL>
